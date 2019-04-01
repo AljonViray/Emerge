@@ -31,8 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
+        Vector3 moveHorizontal = transform.right * _deltaX;
+        Vector3 moveVertical = transform.forward * _deltaY;
 
-        _rb.AddRelativeForce(_deltaX * baseMovespeed, 0f, _deltaY * baseMovespeed, ForceMode.VelocityChange);
+        Vector3 velocity = (moveHorizontal + moveVertical).normalized * baseMovespeed;
+        _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+        //_rb.AddRelativeForce(_deltaX * baseMovespeed, 0f, _deltaY * baseMovespeed, ForceMode.VelocityChange);
     }
 
 

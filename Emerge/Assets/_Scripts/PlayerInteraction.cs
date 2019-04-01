@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject currentEyelineTarget;
+    public GameObject CurrentlyHeldObject;
 
     private Camera _camera;
     // Start is called before the first frame update
     void Start()
     {
         _camera = this.GetComponentInChildren<Camera>();
+        CurrentlyHeldObject = null;
+        currentEyelineTarget = null;
     }
 
     // Update is called once per frame
@@ -33,5 +36,24 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentEyelineTarget = null;
         }
+    }
+
+    public void PickupObject(GameObject ObjectToPickUp)
+    {
+        if (CurrentlyHeldObject == null)
+        {
+            CurrentlyHeldObject = ObjectToPickUp;
+            ObjectToPickUp.transform.parent = this.transform;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void ReleaseCurrentlyHeldObject()
+    {
+        CurrentlyHeldObject.transform.parent = null;
+        CurrentlyHeldObject = null;
     }
 }
