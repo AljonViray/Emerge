@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
+
         _rb.AddRelativeForce(_deltaX * baseMovespeed, 0f, _deltaY * baseMovespeed, ForceMode.VelocityChange);
     }
 
