@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dart : CarryableObject
+public class CarryableObject : InteractableObject
 {
     // Start is called before the first frame update
     void Start()
@@ -18,16 +18,13 @@ public class Dart : CarryableObject
 
     public override bool Interact(PlayerInteraction interactor)
     {
-        Debug.Log("Interact via DART");
-        base.Interact(interactor);
+        interactor.PickupObj(this.gameObject);
         return true;
-
     }
 
-    public override bool InteractWhileHeld(PlayerInteraction interactor)
+    public virtual bool InteractWhileHeld(PlayerInteraction interactor)
     {
-        Debug.Log("InteractWhileHeld via DART");
-        interactor.releaseObj();
+        Debug.Log(interactor.gameObject + " Is interacting with " + this.gameObject + " While holding it");
         return true;
     }
 }

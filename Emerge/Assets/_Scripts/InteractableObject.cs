@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    private GameObject _player;
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
@@ -17,13 +16,9 @@ public class InteractableObject : MonoBehaviour
         
     }
 
-    public virtual void InteractWhenNotHeld()
+    public virtual bool Interact(PlayerInteraction interactor)
     {
-        _player.GetComponent<PlayerInteraction>().PickupObject(this.gameObject);
-    }
-
-    public virtual void InteractWhenHeld()
-    {
-        _player.GetComponent<PlayerInteraction>().ReleaseCurrentlyHeldObject();
+        Debug.Log(interactor.gameObject + " Is interacting with " + this.gameObject);
+        return true;
     }
 }

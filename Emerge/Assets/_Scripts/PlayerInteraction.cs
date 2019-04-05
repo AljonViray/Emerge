@@ -4,56 +4,73 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject currentEyelineTarget;
-    public GameObject CurrentlyHeldObject;
+    public GameObject currentyEyelineTarget;
+    public GameObject currentlyHeldObject;
+    public FixedJoint holdingPoint;
 
+    [Header("Private")]
+    [SerializeField]
+    private Rigidbody emptyRB;
+    [SerializeField]
     private Camera _camera;
+
     // Start is called before the first frame update
     void Start()
     {
-        _camera = this.GetComponentInChildren<Camera>();
-        CurrentlyHeldObject = null;
-        currentEyelineTarget = null;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        LookingAt();
-
+        if (LookingAt())
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentlyHeldObject != null)
+                {
+                    currentlyHeldObject.SendMessage("InteractWhileHeld", this.GetComponent<PlayerInteraction>());
+                }
+                else
+                { 
+                    currentyEyelineTarget.SendMessage("Interact", this.GetComponent<PlayerInteraction>(),SendMessageOptions.DontRequireReceiver);
+  
+                }
+            }
+        }
     }
 
-    private void LookingAt()
+    private bool LookingAt()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit))
         {
             Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
-            currentEyelineTarget = hit.transform.gameObject;
-
+            currentyEyelineTarget = hit.transform.gameObject;
+            return true;
         }
         else
         {
-            currentEyelineTarget = null;
+            return false;
         }
     }
 
-    public void PickupObject(GameObject ObjectToPickUp)
+    public void PickupObj(GameObject objToPickup)
     {
-        if (CurrentlyHeldObject == null)
-        {
-            CurrentlyHeldObject = ObjectToPickUp;
-            ObjectToPickUp.transform.parent = this.transform;
-        }
-        else
-        {
-            return;
-        }
+        currentlyHeldObject = objToPickup;
+        holdingPoint = this.gameObject.AddComponent<FixedJoint>();
+        holdingPoint.connectedBody = currentlyHeldObject.GetComponent<Rigidbody>();
+
+        //currentlyHeldObject.transform.parent = _camera.transform;
+        //currentlyHeldObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    public void ReleaseCurrentlyHeldObject()
+    public void releaseObj()
     {
-        CurrentlyHeldObject.transform.parent = null;
-        CurrentlyHeldObject = null;
+        //currentlyHeldObject.transform.parent = null;
+        //currentlyHeldObject.GetComponent<Rigidbody>().isKinematic = false;
+        Destroy(holdingPoint);
+        currentlyHeldObject = null;
     }
+
+
 }
