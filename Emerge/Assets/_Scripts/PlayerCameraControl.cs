@@ -20,7 +20,7 @@ public class PlayerCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Look();
+
     }
 
     private void Look()
@@ -33,6 +33,6 @@ public class PlayerCameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        Look();
     }
 }
