@@ -8,16 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public float baseJumpForce;
 
     private Rigidbody _rb;
-
     private float _deltaX;
     private float _deltaY;
-    // Start is called before the first frame update
+
     void Start()
     {
         _rb = this.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         _deltaX = Input.GetAxisRaw("Horizontal");
@@ -27,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
     }
 
     public void Move()
@@ -36,8 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 velocity = (moveHorizontal + moveVertical).normalized * baseMovespeed;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
-        //_rb.AddRelativeForce(_deltaX * baseMovespeed, 0f, _deltaY * baseMovespeed, ForceMode.VelocityChange);
     }
 
-
+    public void Jump()
+    {
+        _rb.AddForce(0, baseJumpForce, 0, ForceMode.Impulse);
+    }
 }

@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class CarryableObject : InteractableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override bool Interact(PlayerInteraction interactor)
     {
-        interactor.PickupObj(this.gameObject);
+        interactor.pickupObj(this.gameObject);
         return true;
     }
 

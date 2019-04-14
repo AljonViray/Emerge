@@ -5,22 +5,14 @@ using UnityEngine;
 public class PlayerCameraControl : MonoBehaviour
 {
     public float lookSensitivity;
-
     private float _deltaX;
     private float _deltaY;
     private Camera _camera;
-    // Start is called before the first frame update
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         _camera = this.GetComponentInChildren<Camera>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void Look()
