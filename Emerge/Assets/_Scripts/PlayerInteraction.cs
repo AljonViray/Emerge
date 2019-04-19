@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject heldObject;
-    public SpringJoint holdingPoint;
+    public GameObject hands;
+    public FixedJoint joint;
     public Text text;
     public float throwForce = 100;
 
@@ -66,6 +67,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             throwObj();
         }
+
+        if (heldObject != null && joint == null) releaseObj();
     }
 
 
@@ -75,32 +78,23 @@ public class PlayerInteraction : MonoBehaviour
     public void pickupObj(GameObject objToPickup)
     {
         heldObject = objToPickup;
-
-        holdingPoint = this.gameObject.AddComponent<SpringJoint>();
-        holdingPoint.spring = 0.1f;
-        holdingPoint.breakForce = 100;
-        holdingPoint.breakTorque = 100;
-        holdingPoint.tolerance = 0;
-
-        holdingPoint.connectedBody = heldObject.GetComponent<Rigidbody>();
-        heldObject.transform.SetParent(_camera.transform);
-        heldObject.GetComponent<Rigidbody>().useGravity = false;
+        heldObject.transform.Rotate(_camera.transform.forward);
+    
+        joint = hands.AddComponent<FixedJoint>();
+        joint.connectedBody = heldObject.GetComponent<Rigidbody>();
+        joint.breakForce = 1000;
     }
 
     public void releaseObj()
     {
-        Destroy(holdingPoint);
-        heldObject.GetComponent<Rigidbody>().useGravity = true;
-        heldObject.transform.SetParent(null);
+        Destroy(joint);
         heldObject = null;
     }
 
     public void throwObj()
     {
-        Destroy(holdingPoint);
-        heldObject.GetComponent<Rigidbody>().useGravity = true;
-        heldObject.transform.SetParent(null);
-        heldObject.GetComponent<Rigidbody>().AddForce(this.gameObject.transform.forward * throwForce);
+        Destroy(joint);
+        heldObject.GetComponent<Rigidbody>().AddForce(_camera.gameObject.transform.forward * throwForce);
         heldObject = null;
     }
 
@@ -127,7 +121,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnJointBreak(float breakForce)
     {
-        Destroy(holdingPoint);
         releaseObj();
     }
 }
