@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject held_object;
-    public FixedJoint holding_point;
-    float throw_force = 10;
+    public GameObject heldObject;
+    public SpringJoint holdingPoint;
+    public Text text;
+    public float throwForce = 100;
 
     [Header("Private")]
-    [SerializeField]
-    private Camera _camera;
+    [SerializeField] private Camera _camera;
 
 
-    void Update()
+    // Main Functions //
+
+
+    private void Update()
     {   /*
         if (LookingAt() && Input.GetKeyDown(KeyCode.E))
         {
@@ -33,78 +37,97 @@ public class PlayerInteraction : MonoBehaviour
         if (lookingAt() != null)
         {
             //Pick up object
-            if (held_object == null && Input.GetKeyDown(KeyCode.E))
+            if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
                 pickupObj(lookingAt());
             }
 
             //Drop held object
-            else if (held_object != null && Input.GetKeyDown(KeyCode.E))
+            else if (heldObject != null && Input.GetKeyDown(KeyCode.E))
             {
                 releaseObj();
             }
 
             //Throw held object
-            else if (held_object != null && Input.GetKeyDown(KeyCode.Mouse0))
+            else if (heldObject != null && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 throwObj();
             }
         }
 
         //Drop held object (not looking at it)
-        else if (held_object != null && Input.GetKeyDown(KeyCode.E))
+        else if (heldObject != null && Input.GetKeyDown(KeyCode.E))
         {
             releaseObj();
         }
 
         //Throw held object (not looking at it)
-        else if (held_object != null && Input.GetKeyDown(KeyCode.Mouse0))
+        else if (heldObject != null && Input.GetKeyDown(KeyCode.Mouse0))
         {
             throwObj();
         }
     }
 
-    private GameObject lookingAt()
-    {
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, 3))
-        {
-            Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
 
-            if (hit.transform.gameObject.tag == "Interactable") return hit.transform.gameObject;
-            else return null;
-        }
-        else return null;
-    }
+    // Public Functions //
+
 
     public void pickupObj(GameObject objToPickup)
     {
-        held_object = objToPickup;
+        heldObject = objToPickup;
 
-        holding_point = this.gameObject.AddComponent<FixedJoint>();
-        holding_point.breakForce = 100;
-        holding_point.connectedBody = held_object.GetComponent<Rigidbody>();
+        holdingPoint = this.gameObject.AddComponent<SpringJoint>();
+        holdingPoint.spring = 0.1f;
+        holdingPoint.breakForce = 100;
+        holdingPoint.breakTorque = 100;
+        holdingPoint.tolerance = 0;
 
-        held_object.transform.SetParent(_camera.transform);
-    }
-
-    private void OnJointBreak(float breakForce)
-    {
-        Destroy(holding_point);
-        releaseObj();
+        holdingPoint.connectedBody = heldObject.GetComponent<Rigidbody>();
+        heldObject.transform.SetParent(_camera.transform);
+        heldObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     public void releaseObj()
     {
-        Destroy(holding_point);
-        held_object.transform.SetParent(null);
-        held_object = null;
+        Destroy(holdingPoint);
+        heldObject.GetComponent<Rigidbody>().useGravity = true;
+        heldObject.transform.SetParent(null);
+        heldObject = null;
     }
 
     public void throwObj()
     {
-        Destroy(holding_point);
-        held_object.transform.SetParent(null);
-        held_object.GetComponent<Rigidbody>().AddForce(this.gameObject.transform.forward * throw_force);
-        held_object = null;
+        Destroy(holdingPoint);
+        heldObject.GetComponent<Rigidbody>().useGravity = true;
+        heldObject.transform.SetParent(null);
+        heldObject.GetComponent<Rigidbody>().AddForce(this.gameObject.transform.forward * throwForce);
+        heldObject = null;
+    }
+
+
+    // Private Functions //
+
+
+    private GameObject lookingAt()
+    {
+        Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 3) && hit.transform.gameObject.tag == "Interactable")
+        {
+            Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
+            if (heldObject == null) text.color = Color.green;
+            else text.color = Color.white;
+            return hit.transform.gameObject;
+        }
+        else
+        {
+            text.color = Color.black;
+            return null;
+        }
+    }
+
+    private void OnJointBreak(float breakForce)
+    {
+        Destroy(holdingPoint);
+        releaseObj();
     }
 }
