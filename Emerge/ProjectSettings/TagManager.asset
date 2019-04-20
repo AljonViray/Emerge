@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Ground
+  - Dartboard
+  - Dart
   layers:
   - Default
   - TransparentFX

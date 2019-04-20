@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Dart : CarryableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override bool Interact(PlayerInteraction interactor)
     {
         Debug.Log("Interact via DART");
