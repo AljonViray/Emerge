@@ -69,6 +69,8 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (heldObject != null && joint == null) releaseObj();
+
+        //if (heldObject != null && joint != null) heldObject.gameObject.GetComponent<TrailRenderer>().enabled = true;
     }
 
 

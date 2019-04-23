@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 65006261}
   - component: {fileID: 65006262}
   m_Layer: 0
-  m_Name: Dartboard_Ring4
+  m_Name: Ring4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,9 +214,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 65006257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
 --- !u!1 &126851092
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126851092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -250,8 +251,8 @@ Transform:
   - {fileID: 1123126159}
   - {fileID: 65006258}
   - {fileID: 835910444}
-  m_Father: {fileID: 1955411165}
-  m_RootOrder: 3
+  m_Father: {fileID: 1298506601}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &126851094
 MonoBehaviour:
@@ -265,6 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
+  darts: []
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +959,7 @@ GameObject:
   - component: {fileID: 835910447}
   - component: {fileID: 835910448}
   m_Layer: 0
-  m_Name: Dartboard_Bullseye
+  m_Name: Bullseye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1044,9 +1047,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 835910443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
 --- !u!1 &959126912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1339,7 @@ GameObject:
   - component: {fileID: 1073709200}
   - component: {fileID: 1073709201}
   m_Layer: 0
-  m_Name: Dartboard_Ring1
+  m_Name: Ring1
   m_TagString: Dartboard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,9 +1427,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073709196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
 --- !u!1 &1123126158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,8 +1444,9 @@ GameObject:
   - component: {fileID: 1123126160}
   - component: {fileID: 1123126162}
   - component: {fileID: 1123126163}
+  - component: {fileID: 1123126164}
   m_Layer: 0
-  m_Name: Dartboard_Ring3
+  m_Name: Ring3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1528,9 +1534,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123126158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
+--- !u!114 &1123126164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123126158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attempt: []
 --- !u!1 &1298506600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1580,7 @@ Transform:
   m_Children:
   - {fileID: 170076735}
   - {fileID: 1955411165}
+  - {fileID: 126851093}
   - {fileID: 1705548052}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1710,7 +1731,7 @@ GameObject:
   - component: {fileID: 1641343570}
   - component: {fileID: 1641343571}
   m_Layer: 0
-  m_Name: Dartboard_Ring2
+  m_Name: Ring2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1798,9 +1819,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1641343566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a11405c502284081b038d608c6b88, type: 3}
+  m_Script: {fileID: 11500000, guid: c1408d3eda4d87b44846ea248719b7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attempt: []
 --- !u!1 &1676673616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,7 +1947,7 @@ Transform:
   - {fileID: 733573624}
   - {fileID: 1898468196}
   m_Father: {fileID: 1298506601}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1898468195
 PrefabInstance:
@@ -2042,7 +2064,6 @@ Transform:
   - {fileID: 959126913}
   - {fileID: 644616753}
   - {fileID: 1004045625}
-  - {fileID: 126851093}
   m_Father: {fileID: 1298506601}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072486157639038663}
   - component: {fileID: 6072486157639038662}
-  - component: {fileID: 6072486157639038661}
+  - component: {fileID: 1602369528973027617}
   m_Layer: 0
   m_Name: Dart
   m_TagString: Interactable
@@ -50,7 +50,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6072486157639038661
+--- !u!114 &1602369528973027617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6072486157639038657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4251d4b1f3705849adaf9e837840edd, type: 3}
+  m_Script: {fileID: 11500000, guid: 92abf249aa93dca45bb23f78ae25dc84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6072486157840492319

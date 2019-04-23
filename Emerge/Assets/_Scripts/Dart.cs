@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dart : CarryableObject
+public class Dart : MonoBehaviour
 {
-    public override bool Interact(PlayerInteraction interactor)
-    {
-        Debug.Log("Interact via DART");
-        base.Interact(interactor);
-        return true;
+    public Vector3 originalPosition;
+    public Quaternion originalRotation;
 
-    }
 
-    public override bool InteractWhileHeld(PlayerInteraction interactor)
+    void Start()
     {
-        Debug.Log("InteractWhileHeld via DART");
-        interactor.releaseObj();
-        return true;
+        originalPosition = this.gameObject.transform.position;
+        originalRotation = this.gameObject.transform.rotation;
     }
 }

@@ -4,12 +4,55 @@ using UnityEngine;
 
 public class Dartboard : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public List<string> attempt = new List<string>();
+    public List<GameObject> darts = new List<GameObject>();
+
+    private List<string> solution;
+
+
+    // Main Functions //
+
+
+    private void Start()
     {
-        if (collision.gameObject.tag == "Interactable" && collision.gameObject.name.Split('_')[0] == "Dart")
+        solution = new List<string> { "Ring1", "Bullseye", "Ring3" };
+    }
+
+    private void Update()
+    {
+        if (attempt.Count == 5) CheckSolution();
+        else if (Input.GetKeyDown(KeyCode.R)) Reset();
+    }
+
+    private void Reset()
+    {
+        Debug.Log("Attempt failed! Resetting...");
+        attempt.Clear();
+
+        for (int i = 0; i < darts.Count; i++)
         {
-            Debug.Log("Dart stuck to " + this.gameObject.name);
-            collision.rigidbody.isKinematic = true;
+            darts[i].GetComponent<Rigidbody>().isKinematic = false;
+            darts[i].gameObject.transform.SetPositionAndRotation
+                (darts[i].GetComponent<Dart>().originalPosition,
+                 darts[i].GetComponent<Dart>().originalRotation);
         }
+        darts.Clear();
+    }
+
+
+    // Helper Functions //
+
+    private bool CheckSolution()
+    {
+        for (int i = 0; i < solution.Count; i++)
+        {
+            if (solution[i] != attempt[i])
+            {
+                Reset();
+                return false;
+            }
+        }
+        Destroy(GameObject.Find("Dartboard"));
+        return true;
     }
 }
