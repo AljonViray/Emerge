@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inner_Dartboard : MonoBehaviour
+public class InnerDartboard : MonoBehaviour
 {
-    public string hit;
-
     private Dartboard dartboard;
 
 
@@ -17,13 +15,11 @@ public class Inner_Dartboard : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Interactable" 
-            && collision.gameObject.name.Split('_')[0] == "Dart"
-            && dartboard.attempt.Contains(collision.gameObject.name) == false)
+        if (collision.gameObject.tag == "Interactable" && collision.gameObject.name.Split('_')[0] == "Dart")
         {
             Debug.Log(collision.gameObject.name + " stuck to " + this.gameObject.name);
             collision.rigidbody.isKinematic = true;
-            dartboard.attempt.Add(this.gameObject.name);
+            if (!dartboard.attempt.Contains(this.gameObject.name)) dartboard.attempt.Add(this.gameObject.name);
         }
     }
 }

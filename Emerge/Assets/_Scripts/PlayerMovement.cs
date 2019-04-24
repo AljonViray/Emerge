@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float movespeed;
-    public float jumpForce;
+    //public float jumpForce;
 
     private Rigidbody _rb;
     private float _deltaX;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        if (canJump && Input.GetKeyDown(KeyCode.Space)) Jump();
+        //if (canJump && Input.GetKeyDown(KeyCode.Space)) Jump();
     }
 
 
@@ -45,11 +45,13 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
     }
 
+    /*
     public void Jump()
     {
         canJump = false;
         _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
+    */
 
 
     // Private Functions

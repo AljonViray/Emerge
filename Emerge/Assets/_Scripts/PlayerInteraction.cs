@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject heldObject;
-    public GameObject hands;
-    public FixedJoint joint;
-    public Text text;
-    public float throwForce = 100;
+    public float throwForce;
 
     [Header("Private")]
     [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject hands;
+    [SerializeField] private FixedJoint joint;
+    [SerializeField] private GameObject heldObject;
+    [SerializeField] private Text text;
 
 
     // Main Functions //
@@ -84,7 +84,7 @@ public class PlayerInteraction : MonoBehaviour
     
         joint = hands.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
-        joint.breakForce = 1500;
+        joint.breakForce = 2000;
     }
 
     public void releaseObj()
