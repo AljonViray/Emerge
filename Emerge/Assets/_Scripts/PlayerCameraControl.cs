@@ -5,9 +5,14 @@ using UnityEngine;
 public class PlayerCameraControl : MonoBehaviour
 {
     public float lookSensitivity;
+
+    private Camera _camera;
     private float _deltaX;
     private float _deltaY;
-    private Camera _camera;
+
+
+    // Main Functions //
+
 
     void Start()
     {
@@ -15,16 +20,19 @@ public class PlayerCameraControl : MonoBehaviour
         _camera = this.GetComponentInChildren<Camera>();
     }
 
+    private void LateUpdate()
+    {
+        Look();
+    }
+
+    // Helper Functions //
+
+
     private void Look()
     {
         _deltaX = Input.GetAxis("Mouse X");
         _deltaY = Input.GetAxis("Mouse Y");
         _camera.transform.Rotate(-_deltaY * lookSensitivity, 0f, 0f);
         this.transform.Rotate(0f, _deltaX * lookSensitivity, 0f);
-    }
-
-    private void FixedUpdate()
-    {
-        Look();
     }
 }

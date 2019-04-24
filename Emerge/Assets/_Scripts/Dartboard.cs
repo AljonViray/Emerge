@@ -5,9 +5,9 @@ using UnityEngine;
 public class Dartboard : MonoBehaviour
 {
     public List<string> attempt = new List<string>();
-    public List<GameObject> darts = new List<GameObject>();
 
-    private List<string> solution;
+    [SerializeField] private List<string> solution;
+    [SerializeField] private List<GameObject> darts;
 
 
     // Main Functions //
@@ -15,20 +15,26 @@ public class Dartboard : MonoBehaviour
 
     private void Start()
     {
-        solution = new List<string> { "Ring1", "Bullseye", "Ring3" };
+        solution = new List<string> { "Ring1", "Ring3", "Bullseye" };
+        darts = new List<GameObject> { GameObject.Find("Dart_1"),
+                                       GameObject.Find("Dart_2"),
+                                       GameObject.Find("Dart_3"),
+                                       GameObject.Find("Dart_4"),
+                                       GameObject.Find("Dart_5") };
     }
+
 
     private void Update()
     {
-        if (attempt.Count == 5) CheckSolution();
+        if (attempt.Count >= 3) CheckSolution();
         else if (Input.GetKeyDown(KeyCode.R)) Reset();
     }
+
 
     private void Reset()
     {
         Debug.Log("Attempt failed! Resetting...");
         attempt.Clear();
-
         for (int i = 0; i < darts.Count; i++)
         {
             darts[i].GetComponent<Rigidbody>().isKinematic = false;
@@ -36,23 +42,24 @@ public class Dartboard : MonoBehaviour
                 (darts[i].GetComponent<Dart>().originalPosition,
                  darts[i].GetComponent<Dart>().originalRotation);
         }
-        darts.Clear();
     }
 
 
     // Helper Functions //
 
-    private bool CheckSolution()
+
+    private void CheckSolution()
     {
         for (int i = 0; i < solution.Count; i++)
         {
-            if (solution[i] != attempt[i])
+            if (attempt.Contains(solution[i]) == false)
             {
+                Debug.Log("Attempt failed! Resetting...");
                 Reset();
-                return false;
+                return;
             }
         }
         Destroy(GameObject.Find("Dartboard"));
-        return true;
+        Debug.Log("Attempt Successful!");
     }
 }

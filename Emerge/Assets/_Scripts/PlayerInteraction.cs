@@ -80,11 +80,11 @@ public class PlayerInteraction : MonoBehaviour
     public void pickupObj(GameObject objToPickup)
     {
         heldObject = objToPickup;
-        heldObject.transform.Rotate(_camera.transform.forward);
+        heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
     
         joint = hands.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
-        joint.breakForce = 1000;
+        joint.breakForce = 1500;
     }
 
     public void releaseObj()
