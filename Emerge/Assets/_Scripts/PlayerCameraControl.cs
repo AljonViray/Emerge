@@ -20,7 +20,7 @@ public class PlayerCameraControl : MonoBehaviour
         _camera = this.GetComponentInChildren<Camera>();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Look();
     }

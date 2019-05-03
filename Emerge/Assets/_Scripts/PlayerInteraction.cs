@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public float breakForce;
     public float throwForce;
+    public GameObject heldObject;
 
     [Header("Private")]
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject hands;
     [SerializeField] private FixedJoint joint;
-    [SerializeField] private GameObject heldObject;
     [SerializeField] private Text text;
 
 
@@ -68,9 +69,8 @@ public class PlayerInteraction : MonoBehaviour
             throwObj();
         }
 
+        //If joint breaks due to force, drop object
         if (heldObject != null && joint == null) releaseObj();
-
-        //if (heldObject != null && joint != null) heldObject.gameObject.GetComponent<TrailRenderer>().enabled = true;
     }
 
 
@@ -80,11 +80,13 @@ public class PlayerInteraction : MonoBehaviour
     public void pickupObj(GameObject objToPickup)
     {
         heldObject = objToPickup;
-        heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
+
+        if (heldObject.name.Split('_')[0] == "Dart")    // Only do this for darts
+            heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
     
         joint = hands.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
-        joint.breakForce = 2000;
+        joint.breakForce = breakForce;
     }
 
     public void releaseObj()

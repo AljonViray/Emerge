@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     private float _deltaX;
     private float _deltaY;
-    [SerializeField] private bool canJump;
+    //private bool canJump;
 
 
     // Main Functions //
@@ -57,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
     // Private Functions
 
 
-    private void OnCollisionStay (Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground") canJump = true;
-    }
+    //private void OnCollisionStay (Collision collision)
+    //{
+        //if (collision.gameObject.tag == "Ground") canJump = true;
+    //}
 }
