@@ -10,12 +10,32 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetAllPuzzlesToUnsolved();
     }
+
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void SetAllPuzzlesToUnsolved()
+    {
+        foreach(PuzzleParent p in puzzleParents)
+        {
+            p.isDone = false;
+        }
+    }
+
+    public void PuzzleSolved()
+    {
+        puzzleParents[currentPuzzle].isDone = true;
+        ++currentPuzzle;
+    }
+
+    public string GetCurrentHint()
+    {
+        return hints[currentPuzzle];
     }
 }

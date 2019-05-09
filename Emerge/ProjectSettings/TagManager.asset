@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Dartboard
   - Dart
+  - GameManager
   layers:
   - Default
   - TransparentFX

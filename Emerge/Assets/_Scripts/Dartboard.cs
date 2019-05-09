@@ -61,5 +61,6 @@ public class Dartboard : MonoBehaviour
         Destroy(GameObject.Find("Dartboard"));
         for (int i = 0; i < darts.Count; i++) Destroy(darts[i]);
         Debug.Log("Attempt Successful!");
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
     }
 }

@@ -475,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dad48891b8b9384ba63639f74527e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDone: 0
 --- !u!4 &200888585
 Transform:
   m_ObjectHideFlags: 0
@@ -2112,6 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde15baf0210c3240aaa58b3057f8d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDone: 0
 --- !u!1 &1123126158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8fd5ae61a68dc4282ab7e0cb283f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDone: 0
 --- !u!1 &1298506600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d0351a000ce414d8cc02c7f68425ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDone: 0
 --- !u!1 &1618000521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2766,7 @@ GameObject:
   - component: {fileID: 1818167753}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2780,18 +2784,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hints:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Barrel
+  - Photo
+  - Dartboard
+  - Bottle
   puzzleParents:
   - {fileID: 1384568234}
-  - {fileID: 1384568234}
+  - {fileID: 200888584}
+  - {fileID: 1145857345}
   - {fileID: 1089333069}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   currentPuzzle: 0
 --- !u!4 &1818167754
 Transform:

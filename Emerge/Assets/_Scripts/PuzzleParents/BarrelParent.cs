@@ -7,7 +7,14 @@ public class BarrelParent : PuzzleParent
     public override bool IsPuzzleDone()
     {
         Debug.Log("Barrel Parent");
-        return false;
+        if (isDone)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     // Start is called before the first frame update
     void Start()

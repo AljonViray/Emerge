@@ -7,7 +7,14 @@ public class DartboardParent : PuzzleParent
     public override bool IsPuzzleDone()
     {
         Debug.Log("Dartboard Parent");
-        return false;
+        if (isDone)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // Start is called before the first frame update

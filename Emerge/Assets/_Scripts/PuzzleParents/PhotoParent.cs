@@ -7,7 +7,15 @@ public class PhotoParent : PuzzleParent
     public override bool IsPuzzleDone()
     {
         Debug.Log("Puzzle Parent");
-        return false;
+        if(isDone)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     // Start is called before the first frame update
