@@ -12,14 +12,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SetAllPuzzlesToUnsolved();
+    }
+
+    private void Update()
+    {
         timeRemaining -= Time.deltaTime;
-        if(timeRemaining <= 0)
+        if (timeRemaining <= 0)
         {
             timeRemaining = 0;
             Debug.Log("GAME OVER");
         }
-        this.GetComponentInChildren<TextMeshProUGUI>().text = (timeRemaining/60f).ToString("0.00");
-        SetAllPuzzlesToUnsolved();
+        this.GetComponentInChildren<TextMeshProUGUI>().text = (timeRemaining / 60f).ToString("0.00");
+
+
     }
 
     private void SetAllPuzzlesToUnsolved()
