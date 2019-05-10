@@ -8,7 +8,7 @@ TagManager:
   - Ground
   - Dartboard
   - Dart
-  - GameManager
+  - Pickupable
   layers:
   - Default
   - TransparentFX
