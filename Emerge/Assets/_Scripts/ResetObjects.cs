@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dart : MonoBehaviour
+public class ResetObjects : MonoBehaviour
 {
     public Vector3 originalPosition;
     public Quaternion originalRotation;

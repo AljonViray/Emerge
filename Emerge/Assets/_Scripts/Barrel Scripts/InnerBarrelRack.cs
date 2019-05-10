@@ -2,28 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarrelRack : MonoBehaviour
+public class InnerBarrelRack : MonoBehaviour
 {
     public GameObject newPosition_1;
     public GameObject newPosition_2;
+    public bool bottomFilled = false;
+    public bool allFilled = false;
 
+    private BarrelRack barrelRack;
     private GameObject player;
     private GameObject playerHeldObject;
-    private bool bottomFilled = false;
-    private bool allFilled = false;
 
 
-    // Main Functions //
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        barrelRack = transform.parent.GetComponent<BarrelRack>();
     }
 
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,18 +36,15 @@ public class BarrelRack : MonoBehaviour
                 playerHeldObject.transform.SetPositionAndRotation(newPosition_1.transform.position, newPosition_1.transform.rotation);
                 playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
                 bottomFilled = true;
+                barrelRack.attempt.Add(newPosition_1.name);
             }
             else if (bottomFilled == true && allFilled == false)
             {
                 playerHeldObject.transform.SetPositionAndRotation(newPosition_2.transform.position, newPosition_2.transform.rotation);
                 playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
                 allFilled = true;
+                barrelRack.attempt.Add(newPosition_2.name);
             }
         }
     }
-
-
-    // Helper Functions //
-
-
 }
