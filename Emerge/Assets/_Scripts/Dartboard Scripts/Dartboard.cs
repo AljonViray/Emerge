@@ -5,9 +5,12 @@ using UnityEngine;
 public class Dartboard : MonoBehaviour
 {
     public List<string> attempt = new List<string>();
+    public GameObject player;
+    public GameObject resetButton;
+    public bool isSolved = false;
 
-    [SerializeField] private List<string> solution;
-    [SerializeField] private List<GameObject> darts;
+    private List<string> solution;
+    private List<GameObject> darts;
 
 
     // Main Functions //
@@ -15,6 +18,9 @@ public class Dartboard : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Player");
+        resetButton = GameObject.Find("Reset_Button_Dartboard");
+
         solution = new List<string> { "Ring1", "Ring3", "Bullseye" };
         darts = new List<GameObject> { GameObject.Find("Dart_1"), GameObject.Find("Dart_2"),
                                        GameObject.Find("Dart_3"), GameObject.Find("Dart_4"),
@@ -24,8 +30,8 @@ public class Dartboard : MonoBehaviour
 
     private void Update()
     {
-        if (attempt.Count >= 3) CheckSolution();
-        if (Input.GetKeyDown(KeyCode.R)) Reset();
+        if (attempt.Count >= 3 && isSolved == false) CheckSolution();
+        if (player.GetComponent<PlayerInteraction>().lookingAt() == resetButton && Input.GetKeyDown(KeyCode.E)) Reset();
     }
 
 
@@ -48,19 +54,20 @@ public class Dartboard : MonoBehaviour
 
     private void CheckSolution()
     {
+        // Checking is it fails
         for (int i = 0; i < solution.Count; i++)
-        {
-            if (attempt.Contains(solution[i]) == false)
-            {
-                Debug.Log("Incorrect Combination! Press 'R' to Reset");
-                return;
-            }
-        }
+            if (attempt.Contains(solution[i]) == false) return;
 
-        // If successful, destroy all dartboard-related objects
-        Destroy(GameObject.Find("Dartboard"));
-        for (int i = 0; i < darts.Count; i++) Destroy(darts[i]);
-        Debug.Log("Attempt Successful!");
+        // If successful, play animation and freeze dartboard/darts
+        for (int i = 0; i < darts.Count; i++)
+        {
+            if (darts[i].GetComponent<Rigidbody>().isKinematic) // If darts on the board itself
+                darts[i].transform.SetParent(this.gameObject.transform);
+            else
+               Destroy(darts[i]);
+        }
+        Debug.Log("Dartboard Minigame COMPLETE!");
+        isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
     }
 }

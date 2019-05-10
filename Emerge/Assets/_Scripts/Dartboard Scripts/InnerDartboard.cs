@@ -15,7 +15,7 @@ public class InnerDartboard : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Interactable" && collision.gameObject.name.Split('_')[0] == "Dart")
+        if (collision.gameObject.name.Split('_')[0] == "Dart")
         {
             Debug.Log(collision.gameObject.name + " stuck to " + this.gameObject.name);
             collision.rigidbody.isKinematic = true;

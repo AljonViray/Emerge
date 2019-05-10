@@ -20,28 +20,13 @@ public class PlayerInteraction : MonoBehaviour
 
 
     private void Update()
-    {   /*
-        if (LookingAt() && Input.GetKeyDown(KeyCode.E))
-        {
-            if (currentlyHeldObject != null)    // If holding something
-            {
-                currentlyHeldObject.SendMessage("InteractWhileHeld", this.GetComponent<PlayerInteraction>());
-                currentlyHeldObject.transform.SetParent(this.gameObject.transform);
-            }
-
-            else if (currentlyHeldObject == null)   // If not holding something
-            { 
-                currentyEyelineTarget.SendMessage("Pick Up", this.GetComponent<PlayerInteraction>(),SendMessageOptions.DontRequireReceiver);
-            }
-        }
-        */
-
+    {   
         if (lookingAt() != null)
         {
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                pickupObj(lookingAt());
+                if (lookingAt().tag == "Pickupable") pickupObj(lookingAt());
             }
 
             //Drop held object
@@ -106,16 +91,18 @@ public class PlayerInteraction : MonoBehaviour
     // Private Functions //
 
 
-    private GameObject lookingAt()
+    public GameObject lookingAt()
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 3) && hit.transform.gameObject.tag == "Interactable")
+        if (Physics.Raycast(ray, out RaycastHit hit, 3) 
+            && (hit.transform.gameObject.CompareTag("Pickupable") || hit.transform.gameObject.CompareTag("Interactable")) )
         {
             Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
             if (heldObject == null) text.color = Color.green;
             else text.color = Color.white;
             return hit.transform.gameObject;
         }
+
         else
         {
             text.color = Color.black;
