@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//<<<<<<< HEAD:Emerge/Assets/_Scripts/Dartboard Scripts/Dart.cs
+//public class Dart : InteractableObject
+//=======
 public class Dart : InteractableObject
 {
     public Vector3 originalPosition;

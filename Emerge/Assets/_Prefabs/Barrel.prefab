@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 269526141062087757}
   - component: {fileID: 269526141062087759}
   - component: {fileID: 269526141062087746}
+  - component: {fileID: 8064614005291837266}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Pickupable
@@ -109,3 +110,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 7f3dbf844f3ef6141832ee94595425ec, type: 3}
+--- !u!114 &8064614005291837266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269526141062087744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92abf249aa93dca45bb23f78ae25dc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Dartboard : MonoBehaviour
 {
     public List<string> attempt = new List<string>();
+    public List<string> solution;
     public GameObject player;
     public GameObject resetButton;
     public bool isSolved = false;
 
-    private List<string> solution;
     private List<GameObject> darts;
 
 
@@ -19,12 +19,10 @@ public class Dartboard : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        resetButton = GameObject.Find("Reset_Button_Dartboard");
-
+        resetButton = GameObject.Find("Reset_Dartboard");
         solution = new List<string> { "Ring1", "Ring3", "Bullseye" };
         darts = new List<GameObject> { GameObject.Find("Dart_1"), GameObject.Find("Dart_2"),
-                                       GameObject.Find("Dart_3"), GameObject.Find("Dart_4"),
-                                       GameObject.Find("Dart_5") };
+                                       GameObject.Find("Dart_3"), GameObject.Find("Dart_4"), GameObject.Find("Dart_5") };
     }
 
 
@@ -37,14 +35,15 @@ public class Dartboard : MonoBehaviour
 
     private void Reset()
     {
-        Debug.Log("Resetting...");
+        if (isSolved == true) return;
+        Debug.Log("Resetting Darts...");
         attempt.Clear();
         for (int i = 0; i < darts.Count; i++)
         {
             darts[i].GetComponent<Rigidbody>().isKinematic = false;
             darts[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
-            darts[i].gameObject.transform.SetPositionAndRotation(darts[i].GetComponent<Dart>().originalPosition,
-                                                                 darts[i].GetComponent<Dart>().originalRotation);
+            darts[i].gameObject.transform.SetPositionAndRotation(darts[i].GetComponent<ResetObjects>().originalPosition,
+                                                                 darts[i].GetComponent<ResetObjects>().originalRotation);
         }
     }
 
@@ -64,10 +63,17 @@ public class Dartboard : MonoBehaviour
             if (darts[i].GetComponent<Rigidbody>().isKinematic) // If darts on the board itself
                 darts[i].transform.SetParent(this.gameObject.transform);
             else
-               Destroy(darts[i]);
+                Destroy(darts[i]);
+            darts[i].tag = "Untagged"; // Prevents darts from being picked up again
         }
+
         Debug.Log("Dartboard Minigame COMPLETE!");
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
+        transform.parent.GetComponent<Animator>().SetTrigger("isComplete");
+
+        // Prevents script from running anymore
+        Destroy(resetButton);
+        this.gameObject.GetComponent<Dartboard>().enabled = false;
     }
 }
