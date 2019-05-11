@@ -26,7 +26,10 @@ public class PlayerInteraction : MonoBehaviour
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                if (lookingAt().tag == "Pickupable") pickupObj(lookingAt());
+                if (lookingAt().GetComponentsInParent<InteractableObject>() != null || lookingAt().tag == "Pickupable")
+                { 
+                    pickupObj(lookingAt());
+                }
             }
 
             //Drop held object

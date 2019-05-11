@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dart : MonoBehaviour
+public class Dart : InteractableObject
 {
     public Vector3 originalPosition;
     public Quaternion originalRotation;
