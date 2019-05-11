@@ -5,11 +5,8 @@ using UnityEngine;
 //<<<<<<< HEAD:Emerge/Assets/_Scripts/Dartboard Scripts/Dart.cs
 //public class Dart : InteractableObject
 //=======
-public class Dart : InteractableObject
+public class ResetObjects : CarryableObject
 {
-    public Vector3 originalPosition;
-    public Quaternion originalRotation;
-
 
     void Start()
     {

@@ -9,6 +9,8 @@ TagManager:
   - Dartboard
   - Dart
   - Pickupable
+  - GameManager
+  - NoteFragment
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - PostProcessing
   - Darts
-  - 
+  - Hands
   - 
   - 
   - 

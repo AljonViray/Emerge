@@ -20,6 +20,12 @@ public class PlayerCameraControl : MonoBehaviour
         _camera = this.GetComponentInChildren<Camera>();
     }
 
+    private void Update()
+    {
+        _camera.transform.Rotate(Vector3.one * .000000000001f);
+        _camera.transform.Rotate(Vector3.one * -.000000000001f);
+    }
+
     private void FixedUpdate()
     {
         Look();

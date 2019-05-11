@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     public float throwForce;
     public GameObject heldObject;
 
+
     [Header("Private")]
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject hands;
@@ -17,18 +18,30 @@ public class PlayerInteraction : MonoBehaviour
 
 
     // Main Functions //
+    private void Start()
+    {
+        
 
+    }
 
     private void Update()
-    {   
+    {
+
+        //GameObject.Find("Player").GetComponent<Rigidbody>().WakeUp();
+        //GameObject.Find("Hands").GetComponent<Rigidbody>().WakeUp();
+        //Debug.Log("Hands: " + GameObject.Find("Hands").transform.position);
+        //Debug.Log("Body: " + GameObject.Find("Player").transform.position);
         if (lookingAt() != null)
         {
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                if (lookingAt().GetComponentsInParent<InteractableObject>() != null || lookingAt().tag == "Pickupable")
-                { 
-                    pickupObj(lookingAt());
+                if (lookingAt().GetComponentInParent<InteractableObject>() != null 
+                && lookingAt().GetComponentInParent<InteractableObject>() == true 
+                || lookingAt().tag == "Pickupable")
+                {
+                    lookingAt().GetComponentInParent<InteractableObject>().Interact(this);
+                    //pickupObj(lookingAt());
                 }
             }
 
@@ -67,14 +80,23 @@ public class PlayerInteraction : MonoBehaviour
 
     public void pickupObj(GameObject objToPickup)
     {
+        //Debug.Log(objToPickup + " is being picked up by " + this.gameObject);
         heldObject = objToPickup;
 
         if (heldObject.name.Split('_')[0] == "Dart")    // Only do this for darts
             heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
-    
+        heldObject.transform.position = GameObject.Find("Hands").transform.position;
+        GameObject.Find("Hands").GetComponent<Rigidbody>().sleepThreshold = 0f;
+        heldObject.transform.rotation = Quaternion.LookRotation(_camera.transform.forward);
+        //heldObject.GetComponent<Rigidbody>().sleepThreshold = 0f;
         joint = hands.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
         joint.breakForce = breakForce;
+
+        //joint = this.gameObject.AddComponent<FixedJoint>();
+        //joint.connectedBody = heldObject.GetComponent<Rigidbody>();
+        //joint.breakForce = breakForce;
+
     }
 
     public void releaseObj()
@@ -98,7 +120,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, 3) 
-            && (hit.transform.gameObject.CompareTag("Pickupable") || hit.transform.gameObject.CompareTag("Interactable")) )
+            && (hit.transform.gameObject.GetComponentInParent<InteractableObject>() != null
+            || hit.transform.gameObject.CompareTag("Pickupable") 
+            || hit.transform.gameObject.CompareTag("Interactable")) )
         {
             Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
             if (heldObject == null) text.color = Color.green;
@@ -116,5 +140,10 @@ public class PlayerInteraction : MonoBehaviour
     private void OnJointBreak(float breakForce)
     {
         releaseObj();
+    }
+
+    public Vector3 GetForward()
+    {
+        return _camera.transform.forward;
     }
 }
