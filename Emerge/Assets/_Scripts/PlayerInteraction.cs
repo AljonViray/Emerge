@@ -20,13 +20,11 @@ public class PlayerInteraction : MonoBehaviour
     // Main Functions //
     private void Start()
     {
-        
 
     }
 
     private void Update()
     {
-
         //GameObject.Find("Player").GetComponent<Rigidbody>().WakeUp();
         //GameObject.Find("Hands").GetComponent<Rigidbody>().WakeUp();
         //Debug.Log("Hands: " + GameObject.Find("Hands").transform.position);
@@ -85,18 +83,15 @@ public class PlayerInteraction : MonoBehaviour
 
         if (heldObject.name.Split('_')[0] == "Dart")    // Only do this for darts
             heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
+
         heldObject.transform.position = GameObject.Find("Hands").transform.position;
         GameObject.Find("Hands").GetComponent<Rigidbody>().sleepThreshold = 0f;
         heldObject.transform.rotation = Quaternion.LookRotation(_camera.transform.forward);
         //heldObject.GetComponent<Rigidbody>().sleepThreshold = 0f;
         joint = hands.AddComponent<FixedJoint>();
+        //joint = this.gameObject.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
         joint.breakForce = breakForce;
-
-        //joint = this.gameObject.AddComponent<FixedJoint>();
-        //joint.connectedBody = heldObject.GetComponent<Rigidbody>();
-        //joint.breakForce = breakForce;
-
     }
 
     public void releaseObj()
@@ -114,8 +109,6 @@ public class PlayerInteraction : MonoBehaviour
 
 
     // Private Functions //
-
-
     public GameObject lookingAt()
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
