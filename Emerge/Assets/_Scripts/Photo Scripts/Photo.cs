@@ -20,7 +20,7 @@ public class Photo : MonoBehaviour
     void Update()
     {
         lookingAt = player.GetComponent<PlayerInteraction>().lookingAt();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
         {
             if (solution.Contains(lookingAt.name))
             {
