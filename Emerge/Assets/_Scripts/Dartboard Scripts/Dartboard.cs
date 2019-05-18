@@ -8,6 +8,7 @@ public class Dartboard : MonoBehaviour
     public List<string> solution;
     public GameObject player;
     public GameObject resetButton;
+    public GameObject noteFragment;
     public bool isSolved = false;
 
     private List<GameObject> darts;
@@ -71,6 +72,9 @@ public class Dartboard : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
         transform.parent.GetComponent<Animator>().SetTrigger("isComplete");
+
+        // "Spawn" the Note Fragment after winning
+        noteFragment.transform.GetChild(0).gameObject.SetActive(true);
 
         // Prevents script from running anymore
         Destroy(resetButton);

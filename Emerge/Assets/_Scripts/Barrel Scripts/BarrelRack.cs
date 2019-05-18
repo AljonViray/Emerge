@@ -26,7 +26,6 @@ public class BarrelRack : MonoBehaviour
 
         solution = new List<string> { "Position_1 (1)", "Position_1 (3)", "Position_2 (3)",
                                       "Position_2 (1)", "Position_1 (2)" };
-
         barrels = new List<GameObject> { GameObject.Find("Barrel_1"), GameObject.Find("Barrel_2"), GameObject.Find("Barrel_3"),
                                          GameObject.Find("Barrel_4"), GameObject.Find("Barrel_5"), GameObject.Find("Barrel_6") };
         racks = new List<GameObject> { GameObject.Find("Area_1"), GameObject.Find("Area_2"), GameObject.Find("Area_3") };
@@ -76,6 +75,11 @@ public class BarrelRack : MonoBehaviour
                 barrels[i].transform.SetParent(this.gameObject.transform);
                 barrels[i].tag = "Untagged";
             }
+        }
+        // Also disable box colliders of areas
+        for (int i = 0; i < racks.Count; i++)
+        {
+            racks[i].GetComponent<BoxCollider>().enabled = false;
         }
  
         Debug.Log("Barrel Minigame COMPLETE!");

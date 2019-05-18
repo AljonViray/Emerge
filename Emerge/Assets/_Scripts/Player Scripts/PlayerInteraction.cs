@@ -18,17 +18,8 @@ public class PlayerInteraction : MonoBehaviour
 
 
     // Main Functions //
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
-        //GameObject.Find("Player").GetComponent<Rigidbody>().WakeUp();
-        //GameObject.Find("Hands").GetComponent<Rigidbody>().WakeUp();
-        //Debug.Log("Hands: " + GameObject.Find("Hands").transform.position);
-        //Debug.Log("Body: " + GameObject.Find("Player").transform.position);
         if (lookingAt() != null)
         {
             //Pick up object
@@ -78,7 +69,9 @@ public class PlayerInteraction : MonoBehaviour
 
     public void pickupObj(GameObject objToPickup)
     {
-        //Debug.Log(objToPickup + " is being picked up by " + this.gameObject);
+        if (objToPickup.GetComponent<Rigidbody>().isKinematic == true)
+            objToPickup.GetComponent<Rigidbody>().isKinematic = false;
+
         heldObject = objToPickup;
 
         if (heldObject.name.Split('_')[0] == "Dart")    // Only do this for darts
@@ -112,7 +105,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject lookingAt()
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 3) 
+        if (Physics.Raycast(ray, out RaycastHit hit, 4) 
             && (hit.transform.gameObject.GetComponentInParent<InteractableObject>() != null
             || hit.transform.gameObject.CompareTag("Pickupable") 
             || hit.transform.gameObject.CompareTag("Interactable")) )
