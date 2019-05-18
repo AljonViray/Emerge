@@ -6,17 +6,15 @@ public class Dartboard : MonoBehaviour
 {
     public List<string> attempt = new List<string>();
     public List<string> solution;
-    public GameObject player;
     public GameObject resetButton;
     public GameObject noteFragment;
     public bool isSolved = false;
 
+    private GameObject player;
     private List<GameObject> darts;
 
 
     // Main Functions //
-
-
     private void Start()
     {
         player = GameObject.Find("Player");

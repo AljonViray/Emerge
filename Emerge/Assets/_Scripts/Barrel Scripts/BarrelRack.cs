@@ -13,7 +13,7 @@ public class BarrelRack : MonoBehaviour
     private GameObject player;
     private GameObject playerHeldObject;
     private List<GameObject> barrels;
-    private List<GameObject> racks;
+    private List<GameObject> slots;
 
 
     // Main Functions //
@@ -24,11 +24,11 @@ public class BarrelRack : MonoBehaviour
         player = GameObject.Find("Player");
         resetButton = GameObject.Find("Reset_Barrels");
 
-        solution = new List<string> { "Position_1 (1)", "Position_1 (3)", "Position_2 (3)",
-                                      "Position_2 (1)", "Position_1 (2)" };
+        solution = new List<string> { "Slot_1", "Slot_2", "Slot_4", "Slot_5", "Slot_6" };
         barrels = new List<GameObject> { GameObject.Find("Barrel_1"), GameObject.Find("Barrel_2"), GameObject.Find("Barrel_3"),
                                          GameObject.Find("Barrel_4"), GameObject.Find("Barrel_5"), GameObject.Find("Barrel_6") };
-        racks = new List<GameObject> { GameObject.Find("Area_1"), GameObject.Find("Area_2"), GameObject.Find("Area_3") };
+        slots = new List<GameObject> { GameObject.Find("Slot_1"), GameObject.Find("Slot_2"), GameObject.Find("Slot_3"),
+                                       GameObject.Find("Slot_4"), GameObject.Find("Slot_5"), GameObject.Find("Slot_6") };
     }
 
     void Update()
@@ -52,11 +52,6 @@ public class BarrelRack : MonoBehaviour
             barrels[i].gameObject.transform.SetPositionAndRotation(barrels[i].GetComponent<ResetObjects>().originalPosition,
                                                                    barrels[i].GetComponent<ResetObjects>().originalRotation);
         }
-        for (int i = 0; i < racks.Count; i++)
-        {
-            racks[i].GetComponent<InnerBarrelRack>().bottomFilled = false;
-            racks[i].GetComponent<InnerBarrelRack>().allFilled = false;
-        }
     }
 
 
@@ -65,7 +60,9 @@ public class BarrelRack : MonoBehaviour
         Debug.Log("Checking Solution of Barrels...");
         // Checking is it fails
         for (int i = 0; i < solution.Count; i++)
+        {
             if (!solution.Contains(attempt[i])) return;
+        }
 
         // If successful, play animation and freeze barrels (if it's on the rack)
         for (int i = 0; i < barrels.Count; i++)
@@ -77,9 +74,9 @@ public class BarrelRack : MonoBehaviour
             }
         }
         // Also disable box colliders of areas
-        for (int i = 0; i < racks.Count; i++)
+        for (int i = 0; i < slots.Count; i++)
         {
-            racks[i].GetComponent<BoxCollider>().enabled = false;
+            slots[i].GetComponent<BoxCollider>().enabled = false;
         }
  
         Debug.Log("Barrel Minigame COMPLETE!");
