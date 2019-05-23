@@ -8,6 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     public float breakForce;
     public float throwForce;
     public GameObject heldObject;
+    public bool onPressurePlate = false;
 
 
     [Header("Private")]
@@ -73,16 +74,11 @@ public class PlayerInteraction : MonoBehaviour
             objToPickup.GetComponent<Rigidbody>().isKinematic = false;
 
         heldObject = objToPickup;
-
-        if (heldObject.name.Split('_')[0] == "Dart")    // Only do this for darts
-            heldObject.transform.rotation = Quaternion.LookRotation(heldObject.transform.position - _camera.transform.position) * Quaternion.Euler(90, 0, 0);
-
         heldObject.transform.position = GameObject.Find("Hands").transform.position;
         GameObject.Find("Hands").GetComponent<Rigidbody>().sleepThreshold = 0f;
         heldObject.transform.rotation = Quaternion.LookRotation(_camera.transform.forward);
-        //heldObject.GetComponent<Rigidbody>().sleepThreshold = 0f;
+
         joint = hands.AddComponent<FixedJoint>();
-        //joint = this.gameObject.AddComponent<FixedJoint>();
         joint.connectedBody = heldObject.GetComponent<Rigidbody>();
         joint.breakForce = breakForce;
     }
@@ -110,10 +106,15 @@ public class PlayerInteraction : MonoBehaviour
             || hit.transform.gameObject.CompareTag("Pickupable") 
             || hit.transform.gameObject.CompareTag("Interactable")) )
         {
-            Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
-            if (heldObject == null) text.color = Color.green;
-            else text.color = Color.white;
-            return hit.transform.gameObject;
+            if (hit.transform.gameObject.name.Split('_')[0] == "Dart" && !onPressurePlate)
+                return null;
+            else
+            {
+                Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
+                if (heldObject == null) text.color = Color.green;
+                else text.color = Color.white;
+                return hit.transform.gameObject;
+            }
         }
 
         else

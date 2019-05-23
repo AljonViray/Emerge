@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Dartboard : MonoBehaviour
 {
-    public List<string> attempt = new List<string>();
-    public List<string> solution;
+    public GameObject player;
     public GameObject resetButton;
     public GameObject noteFragment;
+    public List<string> attempt = new List<string>();
+    public List<string> solution;
     public bool isSolved = false;
 
-    private GameObject player;
     private List<GameObject> darts;
 
 
     // Main Functions //
     private void Start()
     {
-        player = GameObject.Find("Player");
-        resetButton = GameObject.Find("Reset_Dartboard");
         solution = new List<string> { "Ring1", "Ring3", "Bullseye" };
         darts = new List<GameObject> { GameObject.Find("Dart_1"), GameObject.Find("Dart_2"),
                                        GameObject.Find("Dart_3"), GameObject.Find("Dart_4"), GameObject.Find("Dart_5") };

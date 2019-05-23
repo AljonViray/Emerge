@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public GameObject dartboard;
+    public GameObject player;
 
-    void Start()
-    {
-        dartboard = GameObject.Find("Dartboard");
-    }
 
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        GetComponent<AudioSource>().Play();
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            //dartboard.GetComponent<Dartboard>().
+            GetComponent<AudioSource>().pitch = 1.0f;
+            GetComponent<AudioSource>().Play();
+            player.GetComponent<PlayerInteraction>().onPressurePlate = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            GetComponent<AudioSource>().pitch = 0.5f;
+            GetComponent<AudioSource>().Play();
+            player.GetComponent<PlayerInteraction>().onPressurePlate = false;
+        }
     }
 }

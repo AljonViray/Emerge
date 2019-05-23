@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BarrelRack : MonoBehaviour
 {
-    public List<string> attempt = new List<string>();
-    public List<string> solution;
+    public GameObject player;
     public GameObject resetButton;
     public GameObject noteFragment;
+    public List<string> attempt = new List<string>();
+    public List<string> solution;
     public bool isSolved = false;
 
-    private GameObject player;
     private GameObject playerHeldObject;
     private List<GameObject> barrels;
     private List<GameObject> slots;
@@ -21,9 +21,6 @@ public class BarrelRack : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player");
-        resetButton = GameObject.Find("Reset_Barrels");
-
         solution = new List<string> { "Slot_1", "Slot_2", "Slot_4", "Slot_5", "Slot_6" };
         barrels = new List<GameObject> { GameObject.Find("Barrel_1"), GameObject.Find("Barrel_2"), GameObject.Find("Barrel_3"),
                                          GameObject.Find("Barrel_4"), GameObject.Find("Barrel_5"), GameObject.Find("Barrel_6") };
