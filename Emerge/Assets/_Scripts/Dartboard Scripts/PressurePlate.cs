@@ -24,6 +24,7 @@ public class PressurePlate : MonoBehaviour
             GetComponent<AudioSource>().pitch = 0.5f;
             GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerInteraction>().onPressurePlate = false;
+            GameObject.Find("Dartboard").GetComponent<Dartboard>().Reset();
         }
     }
 }

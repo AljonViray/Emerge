@@ -30,7 +30,7 @@ public class Dartboard : MonoBehaviour
     }
 
 
-    private void Reset()
+    public void Reset()
     {
         if (isSolved == true) return;
         Debug.Log("Resetting Darts...");
