@@ -24,12 +24,9 @@ public class PlayerCameraControl : MonoBehaviour
     {
         _camera.transform.Rotate(Vector3.one * .000000000001f);
         _camera.transform.Rotate(Vector3.one * -.000000000001f);
-    }
-
-    private void FixedUpdate()
-    {
         Look();
     }
+
 
     // Helper Functions //
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InnerDartboard : MonoBehaviour
 {
+    public AudioClip impactSound;
     private Dartboard dartboard;
 
 
@@ -17,6 +18,7 @@ public class InnerDartboard : MonoBehaviour
     {
         if (collision.gameObject.name.Split('_')[0] == "Dart")
         {
+            collision.gameObject.GetComponent<AudioSource>().PlayOneShot(impactSound);
             Debug.Log(collision.gameObject.name + " stuck to " + this.gameObject.name);
             collision.rigidbody.isKinematic = true;
             if (!dartboard.attempt.Contains(this.gameObject.name)) dartboard.attempt.Add(this.gameObject.name);

@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5509605342992823306}
   - component: {fileID: 5509605342992823310}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a021cd3685da7a74bab55b89aed5416d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSensitivity: 0.1
+  lookSensitivity: 0.05
 --- !u!114 &5509605342992823311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,8 @@ MonoBehaviour:
   breakForce: 3000
   throwForce: 150
   heldObject: {fileID: 0}
+  onPressurePlate: 0
+  throwSound: {fileID: 8300000, guid: 9369207be32c5fb49be3c11b526f4acc, type: 3}
   _camera: {fileID: 5509605342878673446}
   hands: {fileID: 5509605342785207039}
   joint: {fileID: 0}
@@ -241,7 +243,7 @@ GameObject:
   - component: {fileID: 5509605343680473350}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

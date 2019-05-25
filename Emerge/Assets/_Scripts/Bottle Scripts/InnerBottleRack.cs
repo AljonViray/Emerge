@@ -20,20 +20,17 @@ public class InnerBottleRack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.transform.parent.name == "---Bottles---")
+        if (other.gameObject.transform.parent.name == "---Bottles---" && filled == false)
         {
             playerHeldObject = player.GetComponent<PlayerInteraction>().heldObject;
             if (playerHeldObject == null) return;
 
             player.GetComponent<PlayerInteraction>().releaseObj();
-
-            if (filled == false)
-            {
-                playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
-                playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
-                filled = true;
-                bottleRack.attempt.Add(playerHeldObject.name.Split('_')[0]);
-            }
+            playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
+            playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
+            filled = true;
+            bottleRack.attempt.Add(playerHeldObject.name.Split('_')[0]);
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }

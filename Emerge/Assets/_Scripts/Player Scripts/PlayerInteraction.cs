@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     public float throwForce;
     public GameObject heldObject;
     public bool onPressurePlate = false;
+    public AudioClip throwSound;
 
 
     [Header("Private")]
@@ -74,6 +75,7 @@ public class PlayerInteraction : MonoBehaviour
             objToPickup.GetComponent<Rigidbody>().isKinematic = false;
 
         heldObject = objToPickup;
+        heldObject.GetComponent<AudioSource>().Play(); // Play sound when picking up object
         heldObject.transform.position = GameObject.Find("Hands").transform.position;
         GameObject.Find("Hands").GetComponent<Rigidbody>().sleepThreshold = 0f;
         heldObject.transform.rotation = Quaternion.LookRotation(_camera.transform.forward);
@@ -92,6 +94,8 @@ public class PlayerInteraction : MonoBehaviour
     public void throwObj()
     {
         Destroy(joint);
+        if (heldObject.name.Split('_')[0] == "Dart")
+            heldObject.GetComponent<AudioSource>().PlayOneShot(throwSound);
         heldObject.GetComponent<Rigidbody>().AddForce(_camera.gameObject.transform.forward * throwForce);
         heldObject = null;
     }

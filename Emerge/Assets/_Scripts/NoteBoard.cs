@@ -7,22 +7,11 @@ public class NoteBoard : MonoBehaviour
     public GameObject[] anchors;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("NoteFragment"))
         {
+            this.GetComponent<AudioSource>().Play();
             other.gameObject.transform.parent.gameObject.tag = "Untagged";
             other.gameObject.tag = "Untagged";
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().releaseObj();

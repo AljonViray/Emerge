@@ -68,6 +68,7 @@ public class Dartboard : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
         transform.parent.GetComponent<Animator>().SetTrigger("isComplete");
+        this.gameObject.GetComponent<AudioSource>().Play();
 
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
