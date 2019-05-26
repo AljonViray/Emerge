@@ -12,8 +12,8 @@ public class BottleRack : MonoBehaviour
     public bool isSolved = false;
 
     private GameObject playerHeldObject;
-    public List<GameObject> bottles;
-    public List<GameObject> areas;
+    private List<GameObject> bottles;
+    private List<GameObject> areas;
 
 
     // Main Functions //
@@ -28,10 +28,12 @@ public class BottleRack : MonoBehaviour
             areas.Add(child.gameObject);
     }
 
-    void Update()
+    private void Update()
     {
-        if (attempt.Count >= 6 && isSolved == false) CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().lookingAt() == resetButton && Input.GetKeyDown(KeyCode.E)) Reset();
+        if (attempt.Count >= 6 && isSolved == false)
+            CheckSolution();
+        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+            Reset();
     }
 
 
@@ -39,6 +41,7 @@ public class BottleRack : MonoBehaviour
     private void Reset()
     {
         Debug.Log("Resetting Bottles...");
+        resetButton.transform.GetChild(0).GetComponent<AudioSource>().Play();
         attempt.Clear();
         for (int i = 0; i < bottles.Count; i++)
         {
@@ -85,6 +88,6 @@ public class BottleRack : MonoBehaviour
 
         // Prevents script from running anymore
         Destroy(resetButton);
-        this.gameObject.GetComponent<BottleRack>().enabled = false;
+        this.GetComponent<BottleRack>().enabled = false;
     }
 }

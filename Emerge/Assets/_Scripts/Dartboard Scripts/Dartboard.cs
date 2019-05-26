@@ -22,17 +22,21 @@ public class Dartboard : MonoBehaviour
                                        GameObject.Find("Dart_3"), GameObject.Find("Dart_4"), GameObject.Find("Dart_5") };
     }
 
-
     private void Update()
     {
-        if (attempt.Count >= 3 && isSolved == false) CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().lookingAt() == resetButton && Input.GetKeyDown(KeyCode.E)) Reset();
+        if (attempt.Count >= 3 && isSolved == false)
+            CheckSolution();
+        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+        {
+            resetButton.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            Reset();
+        }
     }
 
 
+    // Helper Functions //
     public void Reset()
     {
-        if (isSolved == true) return;
         Debug.Log("Resetting Darts...");
         attempt.Clear();
         for (int i = 0; i < darts.Count; i++)
@@ -43,10 +47,6 @@ public class Dartboard : MonoBehaviour
                                                                  darts[i].GetComponent<ResetObjects>().originalRotation);
         }
     }
-
-
-    // Helper Functions //
-
 
     private void CheckSolution()
     {
@@ -68,13 +68,13 @@ public class Dartboard : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
         transform.parent.GetComponent<Animator>().SetTrigger("isComplete");
-        this.gameObject.GetComponent<AudioSource>().Play();
+        transform.parent.GetComponent<AudioSource>().Play();
 
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
 
         // Prevents script from running anymore
         Destroy(resetButton);
-        this.gameObject.GetComponent<Dartboard>().enabled = false;
+        this.GetComponent<Dartboard>().enabled = false;
     }
 }

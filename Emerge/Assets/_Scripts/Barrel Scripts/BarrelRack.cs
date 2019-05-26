@@ -12,7 +12,7 @@ public class BarrelRack : MonoBehaviour
     public bool isSolved = false;
 
     private GameObject playerHeldObject;
-    private List<GameObject> barrels;
+    private List<GameObject> barrels = new List<GameObject>();
     private List<GameObject> slots;
 
 
@@ -22,16 +22,19 @@ public class BarrelRack : MonoBehaviour
     private void Start()
     {
         solution = new List<string> { "Slot_1", "Slot_2", "Slot_4", "Slot_5", "Slot_6" };
-        barrels = new List<GameObject> { GameObject.Find("Barrel_1"), GameObject.Find("Barrel_2"), GameObject.Find("Barrel_3"),
-                                         GameObject.Find("Barrel_4"), GameObject.Find("Barrel_5"), GameObject.Find("Barrel_6") };
+        GameObject barrelsParent = GameObject.Find("---Barrels---");
+        foreach (Transform child in barrelsParent.transform)
+            barrels.Add(child.gameObject);
         slots = new List<GameObject> { GameObject.Find("Slot_1"), GameObject.Find("Slot_2"), GameObject.Find("Slot_3"),
                                        GameObject.Find("Slot_4"), GameObject.Find("Slot_5"), GameObject.Find("Slot_6") };
     }
 
     void Update()
     {
-        if (attempt.Count >= 5 && isSolved == false) CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().lookingAt() == resetButton && Input.GetKeyDown(KeyCode.E)) Reset();
+        if (attempt.Count >= 5 && isSolved == false)
+            CheckSolution();
+        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+            Reset();
     }
 
 
@@ -41,6 +44,7 @@ public class BarrelRack : MonoBehaviour
     private void Reset()
     {
         Debug.Log("Resetting Barrels...");
+        resetButton.transform.GetChild(0).GetComponent<AudioSource>().Play();
         attempt.Clear();
         for (int i = 0; i < barrels.Count; i++)
         {
@@ -52,7 +56,7 @@ public class BarrelRack : MonoBehaviour
     }
 
 
-    void CheckSolution()
+    private void CheckSolution()
     {
         Debug.Log("Checking Solution of Barrels...");
         // Checking is it fails
@@ -66,7 +70,7 @@ public class BarrelRack : MonoBehaviour
         {
             if (barrels[i].GetComponent<Rigidbody>().isKinematic)
             {
-                barrels[i].transform.SetParent(this.gameObject.transform);
+                barrels[i].transform.SetParent(this.transform);
                 barrels[i].tag = "Untagged";
             }
         }
@@ -86,9 +90,6 @@ public class BarrelRack : MonoBehaviour
 
         // Prevents script from running anymore
         Destroy(resetButton);
-        this.gameObject.GetComponent<BarrelRack>().enabled = false;
+        this.GetComponent<BarrelRack>().enabled = false;
     }
-
-
-
 }

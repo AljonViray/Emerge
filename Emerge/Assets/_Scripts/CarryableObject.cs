@@ -6,7 +6,7 @@ public class CarryableObject : InteractableObject
 {
     public override bool Interact(PlayerInteraction interactor)
     {
-        interactor.pickupObj(this.gameObject);
+        interactor.PickupObj(this.gameObject);
         return true;
     }
 

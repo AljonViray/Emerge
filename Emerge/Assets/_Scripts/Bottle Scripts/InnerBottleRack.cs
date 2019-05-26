@@ -10,13 +10,12 @@ public class InnerBottleRack : MonoBehaviour
     private GameObject playerHeldObject;
 
 
-
+    // Main Functions //
     private void Start()
     {
         player = GameObject.Find("Player");
         bottleRack = GameObject.Find("BottleRack").GetComponent<BottleRack>();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +24,7 @@ public class InnerBottleRack : MonoBehaviour
             playerHeldObject = player.GetComponent<PlayerInteraction>().heldObject;
             if (playerHeldObject == null) return;
 
-            player.GetComponent<PlayerInteraction>().releaseObj();
+            player.GetComponent<PlayerInteraction>().ReleaseObj();
             playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
             playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
             filled = true;

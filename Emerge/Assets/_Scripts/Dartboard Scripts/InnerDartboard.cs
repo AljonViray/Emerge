@@ -18,10 +18,10 @@ public class InnerDartboard : MonoBehaviour
     {
         if (collision.gameObject.name.Split('_')[0] == "Dart")
         {
-            collision.gameObject.GetComponent<AudioSource>().PlayOneShot(impactSound);
-            Debug.Log(collision.gameObject.name + " stuck to " + this.gameObject.name);
+            collision.gameObject.GetComponent<AudioSource>().PlayOneShot(impactSound, 1.5f);
+            Debug.Log(collision.gameObject.name + " stuck to " + this.name);
             collision.rigidbody.isKinematic = true;
-            if (!dartboard.attempt.Contains(this.gameObject.name)) dartboard.attempt.Add(this.gameObject.name);
+            if (!dartboard.attempt.Contains(this.name)) dartboard.attempt.Add(this.name);
         }
     }
 }

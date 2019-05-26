@@ -14,7 +14,7 @@ public class NoteBoard : MonoBehaviour
             this.GetComponent<AudioSource>().Play();
             other.gameObject.transform.parent.gameObject.tag = "Untagged";
             other.gameObject.tag = "Untagged";
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().releaseObj();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().ReleaseObj();
             other.transform.parent.gameObject.transform.parent
                 = anchors[other.gameObject.GetComponentInParent<NoteFragment>().orderInReceipe].transform;
             other.gameObject.transform.parent.transform.localPosition = Vector3.zero;

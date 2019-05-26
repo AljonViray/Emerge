@@ -22,54 +22,45 @@ public class PlayerInteraction : MonoBehaviour
     // Main Functions //
     private void Update()
     {
-        if (lookingAt() != null)
+        if (LookingAt() != null)
         {
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                if (lookingAt().GetComponentInParent<InteractableObject>() != null 
-                && lookingAt().GetComponentInParent<InteractableObject>() == true 
-                || lookingAt().tag == "Pickupable")
+                if (LookingAt().GetComponentInParent<InteractableObject>() != null
+                    && LookingAt().GetComponentInParent<InteractableObject>() == true
+                    || LookingAt().tag == "Pickupable")
                 {
-                    lookingAt().GetComponentInParent<InteractableObject>().Interact(this);
-                    //pickupObj(lookingAt());
+                    LookingAt().GetComponentInParent<InteractableObject>().Interact(this);
                 }
             }
 
-            //Drop held object
-            else if (heldObject != null && Input.GetKeyDown(KeyCode.E))
+            else if (heldObject != null)
             {
-                releaseObj();
-            }
+                //Drop held object
+                if (Input.GetKeyDown(KeyCode.E)) ReleaseObj();
 
-            //Throw held object
-            else if (heldObject != null && Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                throwObj();
+                //Throw held object
+                else if (Input.GetKeyDown(KeyCode.Mouse0)) ThrowObj();
             }
         }
 
-        //Drop held object (not looking at it)
-        else if (heldObject != null && Input.GetKeyDown(KeyCode.E))
+        else if (heldObject != null)
         {
-            releaseObj();
-        }
+            //If joint breaks due to force, drop object
+            if (joint == null) ReleaseObj();
 
-        //Throw held object (not looking at it)
-        else if (heldObject != null && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            throwObj();
-        }
+            //Drop held object (not looking at it)
+            else if (Input.GetKeyDown(KeyCode.E)) ReleaseObj();
 
-        //If joint breaks due to force, drop object
-        if (heldObject != null && joint == null) releaseObj();
+            //Throw held object (not looking at it)
+            else if (Input.GetKeyDown(KeyCode.Mouse0)) ThrowObj();
+        }
     }
 
 
-    // Public Functions //
-
-
-    public void pickupObj(GameObject objToPickup)
+    // Helper Functions //
+    public void PickupObj(GameObject objToPickup)
     {
         if (objToPickup.GetComponent<Rigidbody>().isKinematic == true)
             objToPickup.GetComponent<Rigidbody>().isKinematic = false;
@@ -85,13 +76,13 @@ public class PlayerInteraction : MonoBehaviour
         joint.breakForce = breakForce;
     }
 
-    public void releaseObj()
+    public void ReleaseObj()
     {
         Destroy(joint);
         heldObject = null;
     }
 
-    public void throwObj()
+    public void ThrowObj()
     {
         Destroy(joint);
         if (heldObject.name.Split('_')[0] == "Dart")
@@ -100,16 +91,16 @@ public class PlayerInteraction : MonoBehaviour
         heldObject = null;
     }
 
-
-    // Private Functions //
-    public GameObject lookingAt()
+    public GameObject LookingAt()
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
+
         if (Physics.Raycast(ray, out RaycastHit hit, 4) 
             && (hit.transform.gameObject.GetComponentInParent<InteractableObject>() != null
             || hit.transform.gameObject.CompareTag("Pickupable") 
             || hit.transform.gameObject.CompareTag("Interactable")) )
         {
+            // If player not on pressure plate, do not allow to pick up
             if (hit.transform.gameObject.name.Split('_')[0] == "Dart" && !onPressurePlate)
                 return null;
             else
@@ -126,15 +117,5 @@ public class PlayerInteraction : MonoBehaviour
             text.color = Color.black;
             return null;
         }
-    }
-
-    private void OnJointBreak(float breakForce)
-    {
-        releaseObj();
-    }
-
-    public Vector3 GetForward()
-    {
-        return _camera.transform.forward;
     }
 }

@@ -11,7 +11,7 @@ public class PressurePlate : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GetComponent<AudioSource>().pitch = 1.0f;
+            GetComponent<AudioSource>().pitch = 0.9f;
             GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerInteraction>().onPressurePlate = true;
         }

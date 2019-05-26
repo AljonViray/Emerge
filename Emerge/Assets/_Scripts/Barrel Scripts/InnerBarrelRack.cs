@@ -10,13 +10,12 @@ public class InnerBarrelRack : MonoBehaviour
     private GameObject playerHeldObject;
 
 
-
+    // Main Functions //
     private void Start()
     {
         player = GameObject.Find("Player");
         barrelRack = GameObject.Find("BarrelRack").GetComponent<BarrelRack>();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,14 +24,15 @@ public class InnerBarrelRack : MonoBehaviour
             playerHeldObject = player.GetComponent<PlayerInteraction>().heldObject;
             if (playerHeldObject == null) return;
 
-            player.GetComponent<PlayerInteraction>().releaseObj();
+            player.GetComponent<PlayerInteraction>().ReleaseObj();
 
             if (filled == false)
             {
+                this.GetComponent<AudioSource>().Play();
                 playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
                 playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
                 filled = true;
-                barrelRack.attempt.Add(this.gameObject.name);
+                barrelRack.attempt.Add(this.name);
             }
         }
     }
