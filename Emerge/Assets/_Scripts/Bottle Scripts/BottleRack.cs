@@ -8,19 +8,17 @@ public class BottleRack : MonoBehaviour
     public GameObject resetButton;
     public GameObject noteFragment;
     public List<string> attempt = new List<string>();
-    public List<string> solution;
+    public List<string> solution = new List<string>();
     public bool isSolved = false;
 
     private GameObject playerHeldObject;
-    private List<GameObject> bottles;
-    private List<GameObject> areas;
+    private List<GameObject> bottles = new List<GameObject>();
+    private List<GameObject> areas = new List<GameObject>();
 
 
     // Main Functions //
     private void Start()
     {
-        solution = new List<string> { "whiskey", "gin", "vodka", "rum", "tequila", "absinthe" };
-
         GameObject bottlesParent = GameObject.Find("---Bottles---");
         foreach (Transform child in bottlesParent.transform)
             bottles.Add(child.gameObject);

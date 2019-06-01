@@ -5,34 +5,52 @@ using UnityEngine;
 public class Photo : MonoBehaviour
 {
     public GameObject player;
-    public List<string> solution;
-    public GameObject lookingAt;
+    public GameObject noteFragment;
+    public List<GameObject> solution = new List<GameObject>();
     public bool isSolved = false;
 
+    private GameObject lookingAt;
 
-    void Start()
+
+    // Main Functions //
+    private void Start()
     {
         player = GameObject.Find("Player");
-        solution = new List<string> { "Position_1", "Position_2", "Position_3",
-                                      "Position_4", "Position_5" };
+        GameObject photoParent = GameObject.Find("FakePhoto");
+        foreach (Transform child in photoParent.transform)
+            solution.Add(child.gameObject);
     }
 
-    void Update()
+    private void Update()
     {
+        if (solution.Count == 0)
+            CheckSolution();
+
         lookingAt = player.GetComponent<PlayerInteraction>().LookingAt();
         if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
         {
-            if (solution.Contains(lookingAt.name))
+            if (solution.Contains(lookingAt))
             {
                 lookingAt.GetComponent<MeshRenderer>().enabled = true;
-                solution.Remove(lookingAt.name);
-            }
-
-            if (solution.Count == 0)
-            {
-                isSolved = true;
-                this.gameObject.GetComponent<Photo>().enabled = false;
+                lookingAt.GetComponent<SphereCollider>().enabled = false;
+                solution.Remove(lookingAt);
             }
         }
+    }
+
+
+    private void CheckSolution()
+    {
+        // If successful, play animation and freeze paintings
+        Debug.Log("Photo Minigame COMPLETE!");
+        isSolved = true;
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
+
+        // "Spawn" the Note Fragment after winning
+        noteFragment.transform.GetChild(0).gameObject.SetActive(true);
+        noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+
+        // Prevents script from running anymore
+        this.GetComponent<Dartboard>().enabled = false;
     }
 }

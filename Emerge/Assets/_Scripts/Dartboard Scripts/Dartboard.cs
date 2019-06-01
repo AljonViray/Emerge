@@ -7,19 +7,20 @@ public class Dartboard : MonoBehaviour
     public GameObject player;
     public GameObject resetButton;
     public GameObject noteFragment;
+    public GameObject dartsParent;
     public List<string> attempt = new List<string>();
     public List<string> solution;
     public bool isSolved = false;
 
-    private List<GameObject> darts;
+    private List<GameObject> darts = new List<GameObject>();
 
 
     // Main Functions //
     private void Start()
     {
         solution = new List<string> { "Ring1", "Ring3", "Bullseye" };
-        darts = new List<GameObject> { GameObject.Find("Dart_1"), GameObject.Find("Dart_2"),
-                                       GameObject.Find("Dart_3"), GameObject.Find("Dart_4"), GameObject.Find("Dart_5") };
+        foreach (Transform child in dartsParent.transform)
+            darts.Add(child.gameObject);
     }
 
     private void Update()
@@ -70,11 +71,18 @@ public class Dartboard : MonoBehaviour
         transform.parent.GetComponent<Animator>().SetTrigger("isComplete");
         transform.parent.GetComponent<AudioSource>().Play();
 
-        // "Spawn" the Note Fragment after winning
+        // "Spawn" the Note Fragment AND the Poster after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
+
+        GameObject poster = GameObject.Find("Poster");
+        poster.GetComponent<Rigidbody>().isKinematic = false;
+        poster.GetComponent<MeshRenderer>().enabled = true;
+        poster.GetComponent<CapsuleCollider>().enabled = true;
 
         // Prevents script from running anymore
         Destroy(resetButton);
+        GameObject.Find("Pressure Plate").GetComponent<BoxCollider>().enabled = false;
         this.GetComponent<Dartboard>().enabled = false;
+        
     }
 }

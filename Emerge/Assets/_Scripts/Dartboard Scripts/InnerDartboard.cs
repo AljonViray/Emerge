@@ -10,7 +10,7 @@ public class InnerDartboard : MonoBehaviour
 
     private void Start()
     {
-        dartboard = transform.parent.GetComponent<Dartboard>();
+        dartboard = this.transform.parent.GetComponent<Dartboard>();
     }
 
 

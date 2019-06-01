@@ -101,7 +101,8 @@ public class PlayerInteraction : MonoBehaviour
             || hit.transform.gameObject.CompareTag("Interactable")) )
         {
             // If player not on pressure plate, do not allow to pick up
-            if (hit.transform.gameObject.name.Split('_')[0] == "Dart" && !onPressurePlate)
+            if (  (hit.transform.gameObject.name == "Dart_1" || hit.transform.gameObject.name == "Dart_2")
+                && !onPressurePlate)
                 return null;
             else
             {

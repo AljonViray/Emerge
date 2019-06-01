@@ -53,6 +53,10 @@ public class BarrelRack : MonoBehaviour
             barrels[i].gameObject.transform.SetPositionAndRotation(barrels[i].GetComponent<ResetObjects>().originalPosition,
                                                                    barrels[i].GetComponent<ResetObjects>().originalRotation);
         }
+        for (int i = 0; i < slots.Count; i++)
+        {
+            slots[i].GetComponent<InnerBarrelRack>().filled = false;
+        }
     }
 
 
@@ -84,9 +88,17 @@ public class BarrelRack : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
 
-        // "Spawn" the Note Fragment after winning
+        // "Spawn" the Note Fragment AND Dart_3 after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+
+        GameObject dart_3 = GameObject.Find("Dart_3");
+        dart_3.GetComponent<Rigidbody>().isKinematic = false;
+        dart_3.transform.GetChild(0).gameObject.SetActive(true);
+        dart_3.transform.GetChild(1).gameObject.SetActive(true);
+
+        // Enable the pressure plate
+        GameObject.Find("Pressure Plate").GetComponent<BoxCollider>().enabled = true;
 
         // Prevents script from running anymore
         Destroy(resetButton);
