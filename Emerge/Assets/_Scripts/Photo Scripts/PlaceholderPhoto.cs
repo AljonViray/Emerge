@@ -16,7 +16,7 @@ public class PlaceholderPhoto : MonoBehaviour
     {
         if (other.gameObject.name == "Poster")
         {
-            other.gameObject.GetComponent<AudioSource>().Play();
+            this.GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerInteraction>().ReleaseObj();
             Destroy(other.gameObject);
             GameObject fakePhoto = GameObject.Find("FakePhoto");

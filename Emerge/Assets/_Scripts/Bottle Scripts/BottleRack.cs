@@ -7,6 +7,7 @@ public class BottleRack : MonoBehaviour
     public GameObject player;
     public GameObject resetButton;
     public GameObject noteFragment;
+    public AudioClip wallSplit;
     public List<string> attempt = new List<string>();
     public List<string> solution = new List<string>();
     public bool isSolved = false;
@@ -83,6 +84,13 @@ public class BottleRack : MonoBehaviour
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+        GameObject.Find("RusticTower").GetComponent<Animator>().SetTrigger("isComplete");
+        GameObject.Find("SecretWall_1").GetComponent<Animator>().SetTrigger("isComplete");
+        GameObject.Find("SecretWall_2").GetComponent<Animator>().SetTrigger("isComplete");
+        GameObject.Find("~~~Level~~~").GetComponent<AudioSource>().PlayOneShot(wallSplit, 2);
+
+        // Stop music and play the wall opening sound
+
 
         // Prevents script from running anymore
         Destroy(resetButton);

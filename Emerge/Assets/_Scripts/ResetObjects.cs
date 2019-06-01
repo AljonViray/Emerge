@@ -13,7 +13,6 @@ public class ResetObjects : CarryableObject
         // If manually set the original, then do not get it's current
         if (originalPosition == Vector3.zero)
             originalPosition = this.transform.position;
-        if (originalRotation == Quaternion.Euler(0,0,0))
-            originalRotation = this.transform.rotation;
+        originalRotation = this.transform.rotation;
     }
 }

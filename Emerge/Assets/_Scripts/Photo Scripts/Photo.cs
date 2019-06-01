@@ -51,6 +51,6 @@ public class Photo : MonoBehaviour
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
 
         // Prevents script from running anymore
-        this.GetComponent<Dartboard>().enabled = false;
+        this.GetComponent<Photo>().enabled = false;
     }
 }
