@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int currentPuzzle;
     public float timeRemaining;
 
+    string timeRemaininStr;
+
     void Start()
     {
         SetAllPuzzlesToUnsolved();
@@ -23,7 +25,12 @@ public class GameManager : MonoBehaviour
             timeRemaining = 0;
             Debug.Log("GAME OVER");
         }
-        this.GetComponentInChildren<TextMeshProUGUI>().text = (timeRemaining / 60f).ToString("0.00");
+
+        timeRemaininStr = ((timeRemaining - 60) / 60f).ToString("0");
+        timeRemaininStr += ":";
+        timeRemaininStr += (timeRemaining % 60).ToString("0");
+
+        this.GetComponentInChildren<TextMeshProUGUI>().text = timeRemaininStr;
 
 
     }

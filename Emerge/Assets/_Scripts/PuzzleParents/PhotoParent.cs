@@ -28,6 +28,10 @@ public class PhotoParent : PuzzleParent
     void Update()
     {
         isDone = CheckCompletion();
+        if(isDone && GameObject.Find("GameManager").GetComponent<GameManager>().currentPuzzle == 2)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().PuzzleSolved();
+        }
     }
 
     public bool CheckCompletion()
