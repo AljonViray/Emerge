@@ -97,7 +97,10 @@ public class BarrelRack : MonoBehaviour
         dart_3.transform.GetChild(0).gameObject.SetActive(true);
         dart_3.transform.GetChild(1).gameObject.SetActive(true);
 
-        // Enable the pressure plate
+        // Enable Reset_Darts and the pressure plate
+        GameObject resetDarts = GameObject.Find("Reset_Darts");
+        resetDarts.GetComponent<BoxCollider>().enabled = true;
+        resetDarts.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
         GameObject.Find("Pressure Plate").GetComponent<BoxCollider>().enabled = true;
 
         // Prevents script from running anymore

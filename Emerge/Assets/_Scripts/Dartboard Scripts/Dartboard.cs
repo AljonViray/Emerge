@@ -73,7 +73,6 @@ public class Dartboard : MonoBehaviour
 
         // "Spawn" the Note Fragment AND the Poster after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
-
         GameObject poster = GameObject.Find("Poster");
         poster.GetComponent<Rigidbody>().isKinematic = false;
         poster.GetComponent<MeshRenderer>().enabled = true;
@@ -83,6 +82,5 @@ public class Dartboard : MonoBehaviour
         Destroy(resetButton);
         GameObject.Find("Pressure Plate").GetComponent<BoxCollider>().enabled = false;
         this.GetComponent<Dartboard>().enabled = false;
-        
     }
 }

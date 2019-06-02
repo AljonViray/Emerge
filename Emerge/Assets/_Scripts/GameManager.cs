@@ -39,13 +39,15 @@ public class GameManager : MonoBehaviour
     {
         foreach(PuzzleParent p in puzzleParents)
         {
-            p.isDone = false;
+            if (p != null)
+                p.isDone = false;
         }
     }
 
     public void PuzzleSolved()
     {
-        puzzleParents[currentPuzzle].isDone = true;
+        if (puzzleParents[currentPuzzle] != null)
+            puzzleParents[currentPuzzle].isDone = true;
         ++currentPuzzle;
     }
 

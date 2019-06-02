@@ -62,7 +62,7 @@ public class BottleRack : MonoBehaviour
         // Checking is it fails
         for (int i = 0; i < solution.Count; i++)
         {
-            if (!solution.Contains(attempt[i])) return;
+            if (solution[i] != (attempt[i])) return;
         }
 
         // If successful, freeze bottles (if it's on the rack)
