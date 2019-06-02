@@ -13,7 +13,7 @@ public class BottleRack : MonoBehaviour
     public bool isSolved = false;
 
     private GameObject playerHeldObject;
-    private List<GameObject> bottles = new List<GameObject>();
+    [SerializeField] private List<GameObject> bottles = new List<GameObject>();
     private List<GameObject> areas = new List<GameObject>();
 
 

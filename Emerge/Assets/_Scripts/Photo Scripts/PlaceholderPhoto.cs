@@ -16,13 +16,13 @@ public class PlaceholderPhoto : MonoBehaviour
     {
         if (other.gameObject.name == "Poster")
         {
-            this.GetComponent<AudioSource>().Play();
+            this.gameObject.GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerInteraction>().ReleaseObj();
             Destroy(other.gameObject);
-            GameObject fakePhoto = GameObject.Find("FakePhoto");
-            fakePhoto.GetComponent<MeshRenderer>().enabled = true;
-            foreach (Transform child in fakePhoto.transform)
-                child.GetComponent<SphereCollider>().enabled = true;
+            GameObject alteredPhoto = GameObject.Find("AlteredPhoto");
+            alteredPhoto.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+            for (int i = 1; i < alteredPhoto.transform.childCount; i++)
+                alteredPhoto.transform.GetChild(i).GetComponent<SphereCollider>().enabled = true;
             this.gameObject.SetActive(false);
         }
     }

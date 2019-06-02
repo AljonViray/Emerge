@@ -16,9 +16,10 @@ public class Photo : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        GameObject photoParent = GameObject.Find("FakePhoto");
+        GameObject photoParent = GameObject.Find("AlteredPhoto");
         foreach (Transform child in photoParent.transform)
-            solution.Add(child.gameObject);
+            if (child.name.Split(' ')[0] == "CorrectChange")
+                solution.Add(child.gameObject);
     }
 
     private void Update()
@@ -30,11 +31,7 @@ public class Photo : MonoBehaviour
         if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
         {
             if (solution.Contains(lookingAt))
-            {
-                lookingAt.GetComponent<MeshRenderer>().enabled = true;
-                lookingAt.GetComponent<SphereCollider>().enabled = false;
                 solution.Remove(lookingAt);
-            }
         }
     }
 
@@ -46,9 +43,26 @@ public class Photo : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
 
+        GameObject alteredPhoto = GameObject.Find("AlteredPhoto");
+        for (int i = 1; i < alteredPhoto.transform.childCount; i++)
+            alteredPhoto.transform.GetChild(i).GetComponent<SphereCollider>().enabled = false;
+
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+
+        // "Spawn" the bottles of Absinthe
+        GameObject absinthe = GameObject.Find("absinthe");
+        absinthe.GetComponent<MeshRenderer>().enabled = true;
+        absinthe.GetComponent<MeshCollider>().enabled = true;
+        absinthe.GetComponent<Rigidbody>().isKinematic = false;
+        absinthe.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+        absinthe.transform.GetChild(1).GetComponent<Canvas>().enabled = true;
+
+        // Enable Reset_Bottles (was causing problems w/ resetting absinthe when it's not available)
+        GameObject resetButton = GameObject.Find("Reset_Bottles");
+        resetButton.GetComponent<BoxCollider>().enabled = true;
+        resetButton.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
 
         // Prevents script from running anymore
         this.GetComponent<Photo>().enabled = false;
