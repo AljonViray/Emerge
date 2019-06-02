@@ -24,6 +24,19 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (LookingAt() != null)
         {
+            if(heldObject == null)
+            {
+                if (LookingAt().GetComponent<PicturePossibleChange>() != null && GameObject.Find("~Photo Minigame~").GetComponent<PhotoParent>().IsPuzzleDone() == false)
+                {
+                    Debug.Log(LookingAt());
+                    LookingAt().GetComponent<PicturePossibleChange>().BeingLookedAt();
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        LookingAt().GetComponent<PicturePossibleChange>().BeingSelected();
+                    }
+                }
+            }
+
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {

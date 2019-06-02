@@ -27,6 +27,25 @@ public class PhotoParent : PuzzleParent
     // Update is called once per frame
     void Update()
     {
-        
+        isDone = CheckCompletion();
+    }
+
+    public bool CheckCompletion()
+    {
+        bool temp = true;
+        PicturePossibleChange[] possChanges = GetComponentsInChildren<PicturePossibleChange>();
+        foreach(PicturePossibleChange p in possChanges)
+        {
+            if(p.isSelected == p.realChange)
+            {
+                continue;
+            }
+            else
+            {
+                temp = false;
+                break;
+            }
+        }
+        return temp;
     }
 }
