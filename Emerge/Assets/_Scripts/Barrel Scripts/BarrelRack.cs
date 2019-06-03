@@ -17,11 +17,9 @@ public class BarrelRack : MonoBehaviour
 
 
     // Main Functions //
-
-
     private void Start()
     {
-        solution = new List<string> { "Slot_1", "Slot_2", "Slot_4", "Slot_5", "Slot_6" };
+        solution = new List<string> { "Slot_1", "Slot_4", "Slot_5", "Slot_6" };
         GameObject barrelsParent = GameObject.Find("---Barrels---");
         foreach (Transform child in barrelsParent.transform)
             barrels.Add(child.gameObject);
@@ -31,7 +29,7 @@ public class BarrelRack : MonoBehaviour
 
     void Update()
     {
-        if (attempt.Count >= 5 && isSolved == false)
+        if (attempt.Count >= 4 && isSolved == false)
             CheckSolution();
         if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
             Reset();
@@ -39,8 +37,6 @@ public class BarrelRack : MonoBehaviour
 
 
     // Helper Functions //
-
-
     private void Reset()
     {
         Debug.Log("Resetting Barrels...");
