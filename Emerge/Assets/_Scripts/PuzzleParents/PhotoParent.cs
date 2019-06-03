@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhotoParent : PuzzleParent
 {
+    public GameObject fakePhoto;
     public override bool IsPuzzleDone()
     {
         Debug.Log("Puzzle Parent");
@@ -51,5 +52,14 @@ public class PhotoParent : PuzzleParent
             }
         }
         return temp;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Poster")
+        {
+            fakePhoto.SetActive(true);
+            Destroy(other.gameObject);
+        }
     }
 }
