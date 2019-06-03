@@ -24,6 +24,8 @@ public class PlayerCameraControl : MonoBehaviour
     {
         _camera.transform.Rotate(Vector3.one * .000000000001f);
         _camera.transform.Rotate(Vector3.one * -.000000000001f);
+
+
         Look();
     }
 
@@ -35,7 +37,13 @@ public class PlayerCameraControl : MonoBehaviour
     {
         _deltaX = Input.GetAxis("Mouse X");
         _deltaY = Input.GetAxis("Mouse Y");
-        _camera.transform.Rotate(-_deltaY * lookSensitivity, 0f, 0f);
+        //Debug.Log(_camera.transform.localRotation.eulerAngles.x);
+        if(_camera.transform.localRotation.eulerAngles.x  + -_deltaY*lookSensitivity >= 280 ||
+        _camera.transform.localRotation.eulerAngles.x   + -_deltaY * lookSensitivity <= 80)
+        {
+            _camera.transform.Rotate(-_deltaY * lookSensitivity, 0f, 0f);
+
+        }
         this.transform.Rotate(0f, _deltaX * lookSensitivity, 0f);
     }
 }

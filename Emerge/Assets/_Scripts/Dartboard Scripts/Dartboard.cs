@@ -27,7 +27,7 @@ public class Dartboard : MonoBehaviour
     {
         if (attempt.Count >= 3 && isSolved == false)
             CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+        if (player.GetComponent<PlayerInteraction>().LookingAt(3) == resetButton && Input.GetKeyDown(KeyCode.E))
         {
             resetButton.transform.GetChild(0).GetComponent<AudioSource>().Play();
             Reset();

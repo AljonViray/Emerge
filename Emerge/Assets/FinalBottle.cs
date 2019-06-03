@@ -15,7 +15,7 @@ public class FinalBottle : MonoBehaviour
 
     void Update()
     {
-        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt();
+        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt(3);
         if (lookingAt != null)
         {
             if (lookingAt.name == "final_bottle")

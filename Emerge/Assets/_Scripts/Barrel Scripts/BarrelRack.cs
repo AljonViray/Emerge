@@ -31,7 +31,7 @@ public class BarrelRack : MonoBehaviour
     {
         if (attempt.Count >= 4 && isSolved == false)
             CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+        if (player.GetComponent<PlayerInteraction>().LookingAt(3) == resetButton && Input.GetKeyDown(KeyCode.E))
             Reset();
     }
 

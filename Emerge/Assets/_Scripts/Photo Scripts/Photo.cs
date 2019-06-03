@@ -27,7 +27,7 @@ public class Photo : MonoBehaviour
         if (solution.Count == 0)
             CheckSolution();
 
-        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt();
+        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt(50);
         if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
         {
             if (solution.Contains(lookingAt))

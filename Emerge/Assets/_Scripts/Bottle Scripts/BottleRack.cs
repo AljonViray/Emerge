@@ -31,7 +31,7 @@ public class BottleRack : MonoBehaviour
     {
         if (attempt.Count >= 6 && isSolved == false)
             CheckSolution();
-        if (player.GetComponent<PlayerInteraction>().LookingAt() == resetButton && Input.GetKeyDown(KeyCode.E))
+        if (player.GetComponent<PlayerInteraction>().LookingAt(3) == resetButton && Input.GetKeyDown(KeyCode.E))
             Reset();
     }
 

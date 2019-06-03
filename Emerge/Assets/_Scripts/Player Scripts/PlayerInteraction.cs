@@ -22,29 +22,34 @@ public class PlayerInteraction : MonoBehaviour
     // Main Functions //
     private void Update()
     {
-        if (LookingAt() != null)
+        Debug.DrawRay(_camera.transform.position, _camera.transform.forward * 5,Color.red);
+        if (LookingAt(5) != null)
         {
-            if(heldObject == null)
+            if (heldObject == null)
             {
-                if (LookingAt().GetComponent<PicturePossibleChange>() != null && GameObject.Find("~Photo Minigame~").GetComponent<PhotoParent>().IsPuzzleDone() == false)
+                if (LookingAt(5).GetComponent<PicturePossibleChange>() != null && GameObject.Find("~Photo Minigame~").GetComponent<PhotoParent>().IsPuzzleDone() == false)
                 {
-                    Debug.Log(LookingAt());
-                    LookingAt().GetComponent<PicturePossibleChange>().BeingLookedAt();
-                    if(Input.GetKeyDown(KeyCode.E))
+                    Debug.Log(LookingAt(5));
+                    LookingAt(5).GetComponent<PicturePossibleChange>().BeingLookedAt();
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        LookingAt().GetComponent<PicturePossibleChange>().BeingSelected();
+                        LookingAt(5).GetComponent<PicturePossibleChange>().BeingSelected();
                     }
                 }
             }
+        }
 
+
+        if (LookingAt(3) != null)
+        {
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                if (LookingAt().GetComponentInParent<InteractableObject>() != null
-                    && LookingAt().GetComponentInParent<InteractableObject>() == true
-                    || LookingAt().tag == "Pickupable")
+                if (LookingAt(3).GetComponentInParent<InteractableObject>() != null
+                    && LookingAt(3).GetComponentInParent<InteractableObject>() == true
+                    || LookingAt(3).tag == "Pickupable")
                 {
-                    LookingAt().GetComponentInParent<InteractableObject>().Interact(this);
+                    LookingAt(3).GetComponentInParent<InteractableObject>().Interact(this);
                 }
             }
 
@@ -104,11 +109,11 @@ public class PlayerInteraction : MonoBehaviour
         heldObject = null;
     }
 
-    public GameObject LookingAt()
+    public GameObject LookingAt(float range)
     {
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 4) 
+        if (Physics.Raycast(ray, out RaycastHit hit, range) 
             && (hit.transform.gameObject.GetComponentInParent<InteractableObject>() != null
             || hit.transform.gameObject.CompareTag("Pickupable") 
             || hit.transform.gameObject.CompareTag("Interactable")) )
