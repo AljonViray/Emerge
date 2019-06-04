@@ -41,14 +41,14 @@ public class PhotoParent : PuzzleParent
         PicturePossibleChange[] possChanges = GetComponentsInChildren<PicturePossibleChange>();
         foreach(PicturePossibleChange p in possChanges)
         {
-            if(p.isSelected == p.realChange)
-            {
-                continue;
-            }
-            else
+            if(!(p.isSelected == p.realChange))
             {
                 temp = false;
                 break;
+            }
+            else
+            {
+                continue;
             }
         }
         return temp;
