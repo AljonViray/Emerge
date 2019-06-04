@@ -41,8 +41,7 @@ public class Photo : MonoBehaviour
             this.transform.GetChild(i).GetComponent<SphereCollider>().enabled = false;
 
         // "Spawn" the Note Fragment after winning
-        noteFragment.transform.GetChild(0).gameObject.SetActive(true);
-        noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+        noteFragment.SetActive(true);
 
         loreCard.SetActive(true);
 

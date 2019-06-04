@@ -22,7 +22,7 @@ public class WinCondition : MonoBehaviour
             && player.GetComponent<PlayerInteraction>().heldObject == finalBottle)
         {
             GameObject.Find("SceneManagerObj").GetComponent<SceneManager>().LoadWin();
-            Debug.Log("WIN CONDITION MET, NEED END SCREEN");
+            //Debug.Log("WIN CONDITION MET, NEED END SCREEN");
         }
     }
 }
