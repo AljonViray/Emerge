@@ -21,6 +21,7 @@ public class WinCondition : MonoBehaviour
             && other.transform.parent.gameObject == player 
             && player.GetComponent<PlayerInteraction>().heldObject == finalBottle)
         {
+            GameObject.Find("SceneManagerObj").GetComponent<SceneManager>().LoadWin();
             Debug.Log("WIN CONDITION MET, NEED END SCREEN");
         }
     }

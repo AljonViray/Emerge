@@ -36,4 +36,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.Application.Quit();
     }
+
+    public void LoadWin()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
+    }
 }
