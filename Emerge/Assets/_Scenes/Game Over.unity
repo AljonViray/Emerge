@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.6999512, y: -0.6000061}
-  m_SizeDelta: {x: -562.6, y: -313.2}
+  m_AnchoredPosition: {x: 5.0999756, y: -2.2000122}
+  m_SizeDelta: {x: -556, y: -310.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325655494
 MonoBehaviour:
@@ -927,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 10}
+  m_AnchoredPosition: {x: 5.1, y: 66}
   m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738167481
@@ -957,13 +957,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 62
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: You did not Emerge Victorious
 --- !u!222 &1738167482
 CanvasRenderer:
   m_ObjectHideFlags: 0
