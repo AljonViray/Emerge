@@ -7826,6 +7826,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
         type: 3}
+      propertyPath: hints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: puzzleParents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
       propertyPath: puzzleParents.Array.data[0]
       value: 
       objectReference: {fileID: 1384568234}
@@ -7842,6 +7852,36 @@ PrefabInstance:
     - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
         type: 3}
       propertyPath: puzzleParents.Array.data[3]
+      value: 
+      objectReference: {fileID: 1089333069}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: hints.Array.data[0]
+      value: Try top to bottom.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: hints.Array.data[1]
+      value: Try to replicate the shots.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: hints.Array.data[2]
+      value: What has changed?
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: hints.Array.data[3]
+      value: The order they are placed, could be called a receipe.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: hints.Array.data[4]
+      value: You Win!
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223198994405196996, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
+        type: 3}
+      propertyPath: puzzleParents.Array.data[4]
       value: 
       objectReference: {fileID: 1089333069}
     - target: {fileID: 1422323984, guid: 6afe6df3064b85a4c92b6b2e819faeb6, type: 3}
