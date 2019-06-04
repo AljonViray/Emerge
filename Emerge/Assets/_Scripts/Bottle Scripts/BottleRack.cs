@@ -87,16 +87,11 @@ public class BottleRack : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
 
-        // "Spawn" the Note Fragment after winning
-        noteFragment.transform.GetChild(0).gameObject.SetActive(true);
-        noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+        // Animate Walls opening when winning
         GameObject.Find("RusticTower").GetComponent<Animator>().SetTrigger("isComplete");
         GameObject.Find("SecretWall_1").GetComponent<Animator>().SetTrigger("isComplete");
         GameObject.Find("SecretWall_2").GetComponent<Animator>().SetTrigger("isComplete");
         GameObject.Find("~~~Level~~~").GetComponent<AudioSource>().PlayOneShot(wallSplit, 2);
-
-        // Stop music and play the wall opening sound
-
 
         // Prevents script from running anymore
         Destroy(resetButton);
