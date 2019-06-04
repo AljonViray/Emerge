@@ -28,8 +28,11 @@ public class InnerBottleRack : MonoBehaviour
             playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
             playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
             filled = true;
-            bottleRack.attempt.Add(playerHeldObject.name.Split('_')[0]);
             this.GetComponent<AudioSource>().Play();
+
+            // add slot to attempt
+            bottleRack.attempt.Add(playerHeldObject.name.Split('_')[0]);
+            bottleRack.attemptSlots.Add(this.name);
         }
     }
 }

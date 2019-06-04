@@ -31,6 +31,7 @@ public class InnerBarrelRack : MonoBehaviour
                 this.GetComponent<AudioSource>().Play();
                 playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
                 playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
+                playerHeldObject.GetComponent<MeshCollider>().enabled = false;
                 filled = true;
                 barrelRack.attempt.Add(this.name);
             }

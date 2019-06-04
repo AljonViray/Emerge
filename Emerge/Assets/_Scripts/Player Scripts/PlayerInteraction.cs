@@ -39,7 +39,6 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
-
         if (LookingAt(3) != null)
         {
             //Pick up object

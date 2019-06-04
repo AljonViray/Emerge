@@ -16,8 +16,7 @@ public class Photo : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        GameObject photoParent = GameObject.Find("AlteredPhoto");
-        foreach (Transform child in photoParent.transform)
+        foreach (Transform child in this.transform)
             if (child.name.Split(' ')[0] == "CorrectChange")
                 solution.Add(child.gameObject);
     }
@@ -27,7 +26,7 @@ public class Photo : MonoBehaviour
         if (solution.Count == 0)
             CheckSolution();
 
-        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt(50);
+        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt(5);
         if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
         {
             if (solution.Contains(lookingAt))
@@ -43,9 +42,8 @@ public class Photo : MonoBehaviour
         isSolved = true;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
 
-        GameObject alteredPhoto = GameObject.Find("AlteredPhoto");
-        for (int i = 1; i < alteredPhoto.transform.childCount; i++)
-            alteredPhoto.transform.GetChild(i).GetComponent<SphereCollider>().enabled = false;
+        for (int i = 0; i < this.transform.childCount-1; i++)
+            this.transform.GetChild(i).GetComponent<SphereCollider>().enabled = false;
 
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);

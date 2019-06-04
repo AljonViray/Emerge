@@ -19,9 +19,7 @@ public class PlaceholderPhoto : MonoBehaviour
             this.gameObject.GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerInteraction>().ReleaseObj();
             Destroy(other.gameObject);
-
-            GameObject.Find("SpotLight_Special").GetComponent<Light>().intensity = 5;
-
+       
             GameObject alteredPhoto = GameObject.Find("AlteredPhoto");
             alteredPhoto.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             for (int i = 1; i < alteredPhoto.transform.childCount; i++)

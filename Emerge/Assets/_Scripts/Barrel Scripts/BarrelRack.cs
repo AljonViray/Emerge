@@ -47,6 +47,7 @@ public class BarrelRack : MonoBehaviour
             barrels[i].gameObject.transform.SetPositionAndRotation(barrels[i].GetComponent<ResetObjects>().originalPosition,
                                                                    barrels[i].GetComponent<ResetObjects>().originalRotation);
             barrels[i].GetComponent<Rigidbody>().isKinematic = false;
+            barrels[i].GetComponent<MeshCollider>().enabled = true;
             barrels[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         for (int i = 0; i < slots.Count; i++)
