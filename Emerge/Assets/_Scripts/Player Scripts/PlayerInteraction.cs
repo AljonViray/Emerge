@@ -39,16 +39,16 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
-        if (LookingAt(3) != null)
+        if (LookingAt(4) != null)
         {
             //Pick up object
             if (heldObject == null && Input.GetKeyDown(KeyCode.E))
             {
-                if (LookingAt(3).GetComponentInParent<InteractableObject>() != null
-                    && LookingAt(3).GetComponentInParent<InteractableObject>() == true
-                    || LookingAt(3).tag == "Pickupable")
+                if (LookingAt(4).GetComponentInParent<InteractableObject>() != null
+                    && LookingAt(4).GetComponentInParent<InteractableObject>() == true
+                    || LookingAt(4).tag == "Pickupable")
                 {
-                    LookingAt(3).GetComponentInParent<InteractableObject>().Interact(this);
+                    LookingAt(4).GetComponentInParent<InteractableObject>().Interact(this);
                 }
             }
 
