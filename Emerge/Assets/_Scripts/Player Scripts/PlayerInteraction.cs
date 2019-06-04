@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
     // Main Functions //
     private void Update()
     {
-        Debug.DrawRay(_camera.transform.position, _camera.transform.forward * 5,Color.red);
+        //Debug.DrawRay(_camera.transform.position, _camera.transform.forward * 5,Color.red);
         if (LookingAt(5) != null)
         {
             if (heldObject == null)
@@ -123,7 +123,7 @@ public class PlayerInteraction : MonoBehaviour
                 return null;
             else
             {
-                Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
+                //Debug.DrawRay(_camera.transform.position, _camera.transform.forward * hit.distance, Color.yellow);
                 if (heldObject == null) text.color = Color.green;
                 else text.color = Color.white;
                 return hit.transform.gameObject;

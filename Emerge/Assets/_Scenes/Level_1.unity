@@ -6846,7 +6846,7 @@ Transform:
   - {fileID: 429187374}
   - {fileID: 123586230}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &285798111
 PrefabInstance:
@@ -7034,191 +7034,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 287309617}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &312590024
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Name
-      value: LoreHintCard1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Text
-      value: "If you are reading this, the coppers got me. Won\u2019t be long until
-        they find the bar, and trash all the giggle water. I need you to retrieve
-        my magnum opus, the best booze I have ever brewed. I can\u2019t be sure what
-        prying eyes are reading this so I will start you off with this.\n\nThe Delivery
-        needs to be stored,\nO R O T H T E A U A R\nN R P A E T N N L C I\nE E L N
-        R O T D L K G\nB L E O B M E A S O H\nA T F T O C R F T N T\n\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132799292180131319, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_text
-      value: "19th January, 1925\r\nMac slammed down his mug and plucked the darts
-        from the board. He stepped back to the line and let the first dart fly, outer
-        ring, he would have to do better if he wanted Charles to be the one buying
-        the whole place a round of drinks. \n\nLuckily for him, his second dart stuck
-        a dead center bullseye, quickly followed by his third splitting the difference,
-        just barely netting him enough to win the game. The drinks were poured and
-        cheering roared, I doubt we will see the likes of it again\u2026\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 15d8d91c969ba9e40812db04df07540e, type: 3}
 --- !u!1 &325809360
 GameObject:
   m_ObjectHideFlags: 0
@@ -7807,7 +7622,7 @@ PrefabInstance:
     - target: {fileID: 9223198994405196999, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9223198994405196999, guid: 6afe6df3064b85a4c92b6b2e819faeb6,
         type: 3}
@@ -7894,191 +7709,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6afe6df3064b85a4c92b6b2e819faeb6, type: 3}
---- !u!1001 &378828308
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Name
-      value: LoreHintCard1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -21.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.69838065
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7157265
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -88.594
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Text
-      value: "If you are reading this, the coppers got me. Won\u2019t be long until
-        they find the bar, and trash all the giggle water. I need you to retrieve
-        my magnum opus, the best booze I have ever brewed. I can\u2019t be sure what
-        prying eyes are reading this so I will start you off with this.\n\nThe Delivery
-        needs to be stored,\nO R O T H T E A U A R\nN R P A E T N N L C I\nE E L N
-        R O T D L K G\nB L E O B M E A S O H\nA T F T O C R F T N T\n\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132799292180131319, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_text
-      value: "19th January, 1925\r\nMac slammed down his mug and plucked the darts
-        from the board. He stepped back to the line and let the first dart fly, outer
-        ring, he would have to do better if he wanted Charles to be the one buying
-        the whole place a round of drinks. \n\nLuckily for him, his second dart stuck
-        a dead center bullseye, quickly followed by his third splitting the difference,
-        just barely netting him enough to win the game. The drinks were poured and
-        cheering roared, I doubt we will see the likes of it again\u2026\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 15d8d91c969ba9e40812db04df07540e, type: 3}
 --- !u!1 &381252714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7758920808910146837, guid: 1e6b6529de976ff40b2a4f96910f3b54,
@@ -8135,7 +7765,7 @@ PrefabInstance:
     - target: {fileID: 7254936122379814085, guid: a1731454dc3bc8c40911059e456cd43e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7254936122379814085, guid: a1731454dc3bc8c40911059e456cd43e,
         type: 3}
@@ -8201,6 +7831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254936123745973356, guid: a1731454dc3bc8c40911059e456cd43e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.47058824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1731454dc3bc8c40911059e456cd43e, type: 3}
@@ -8535,7 +8170,7 @@ Transform:
   - {fileID: 758845210}
   - {fileID: 2032753418}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &440338107
 MonoBehaviour:
@@ -10159,9 +9794,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &629142312 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
+  m_CorrespondingSourceObject: {fileID: 1985699494595203953, guid: d42a5b6c9e00e5542bef6b7d9d955200,
     type: 3}
-  m_PrefabInstance: {fileID: 378828308}
+  m_PrefabInstance: {fileID: 7605860799516460369}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &639525522
 GameObject:
@@ -10790,6 +10425,7 @@ MonoBehaviour:
   solution: []
   isSolved: 0
   absinthe: {fileID: 141584580}
+  loreCard: {fileID: 2137377747}
 --- !u!1001 &765297683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13833,186 +13469,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1083394192}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1083985422
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8215670944370139188, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Name
-      value: LoreHintCard0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -28.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670944370139190, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_Text
-      value: "If you are reading this, the coppers got me. Won\u2019t be long until
-        they find the bar, and trash all the giggle water. I need you to retrieve
-        my magnum opus, the best booze I have ever brewed. I can\u2019t be sure what
-        prying eyes are reading this so I will start you off with this.\n\nThe Delivery
-        needs to be stored,\nO R O T H T E A U A R\nN R P A E T N N L C I\nE E L N
-        R O T D L K G\nB L E O B M E A S O H\nA T F T O C R F T N T\n\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215670945762550058, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132799292180131319, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 475
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 117
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_text
-      value: "If you are reading this, the coppers got me. Won\u2019t be long until
-        they find the bar, and trash all the giggle water. I need you to retrieve
-        and safeguard the best booze I have ever brewed. I can\u2019t be sure what
-        prying eyes are reading this so I will start you off with this.\r\n\r\nThe
-        delivery needs to be stored,\r\r\nO R O T H T E A U A R               \r\nN
-        R P A E T N N L C I      \r\nE E L N R O T D L K G       \r\nB L E O B M E
-        A S O H            \r\nA T F T O C R F T N T \r\n\n-Issac\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 654235771218859933, guid: 15d8d91c969ba9e40812db04df07540e,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 15d8d91c969ba9e40812db04df07540e, type: 3}
 --- !u!1 &1087204019
 GameObject:
   m_ObjectHideFlags: 0
@@ -14078,7 +13534,7 @@ Transform:
   - {fileID: 7443452835370327040}
   - {fileID: 141246902}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1089333069
 MonoBehaviour:
@@ -15926,7 +15382,7 @@ Transform:
   - {fileID: 2129210230}
   - {fileID: 325809361}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1298506602
 AudioSource:
@@ -16769,7 +16225,7 @@ Transform:
   - {fileID: 612089468}
   - {fileID: 1077072879}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384568234
 MonoBehaviour:
@@ -16964,7 +16420,7 @@ PrefabInstance:
     - target: {fileID: 852057480007900550, guid: 566f5dfa107aef243aae48eb78318bc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 852057480007900550, guid: 566f5dfa107aef243aae48eb78318bc8,
         type: 3}
@@ -21536,7 +20992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 135.16, y: 92.62, z: 0}
 --- !u!4 &1945713736
 Transform:
@@ -22281,7 +21737,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2046455555
 PrefabInstance:
@@ -27995,6 +27451,12 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &2137377747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1985699492929095777, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+    type: 3}
+  m_PrefabInstance: {fileID: 7605860799516460369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1156056663320637
 GameObject:
   m_ObjectHideFlags: 0
@@ -30045,6 +29507,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3613998556356552222}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7605860799516460369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7605860798537171305, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_Name
+      value: ~~LoreHintCards~~
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605860798537171304, guid: d42a5b6c9e00e5542bef6b7d9d955200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d42a5b6c9e00e5542bef6b7d9d955200, type: 3}
 --- !u!4 &7893574669282500592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7443452835828911325, guid: 6ebe8c2080809a847b8c6ace6fda7c20,

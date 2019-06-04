@@ -12,6 +12,7 @@ public class Photo : MonoBehaviour
     public GameObject absinthe;
 
     private GameObject lookingAt;
+    public GameObject loreCard;
 
 
     // Main Functions //
@@ -50,6 +51,8 @@ public class Photo : MonoBehaviour
         // "Spawn" the Note Fragment after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+
+        loreCard.SetActive(true);
 
         // "Spawn" the bottles of Absinthe
         absinthe.SetActive(true);
