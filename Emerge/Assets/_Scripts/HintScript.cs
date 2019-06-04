@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HintScript : MonoBehaviour
 {
+    public GameManager gameManager;
+
     private GameObject hintObj;
     private Text hintText;
     // Start is called before the first frame update
@@ -19,8 +21,10 @@ public class HintScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
+            hintText.text = gameManager.GetCurrentHint();
             bool active = hintObj.activeSelf;
             hintObj.SetActive(!active);
         }
     }
+
 }
