@@ -25,11 +25,17 @@ public class GameManager : MonoBehaviour
             timeRemaining = 0;
             Debug.Log("GAME OVER");
         }
-
-        timeRemaininStr = ((timeRemaining - 60) / 60f).ToString("0");
-        timeRemaininStr += ":";
-        timeRemaininStr += (timeRemaining % 60).ToString("0");
-
+        string minutes = ((int)(timeRemaining / 60f)).ToString("0");
+        string seconds;
+        if (timeRemaining % 60 < 10f)
+        {
+            seconds = "0" + (timeRemaining % 60).ToString("0");
+        }
+        else
+        {
+            seconds = (timeRemaining % 60).ToString("0");
+        }
+        timeRemaininStr = minutes + ":" + seconds;
         this.GetComponentInChildren<TextMeshProUGUI>().text = timeRemaininStr;
 
 
