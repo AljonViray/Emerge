@@ -6,6 +6,11 @@ public class NoteBoard : MonoBehaviour
 {
     public GameObject[] anchors;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
