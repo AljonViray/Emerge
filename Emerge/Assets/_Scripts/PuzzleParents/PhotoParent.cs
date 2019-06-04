@@ -32,7 +32,7 @@ public class PhotoParent : PuzzleParent
         if(isDone && GameObject.Find("GameManager").GetComponent<GameManager>().currentPuzzle == 2)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().PuzzleSolved();
-            GameObject.Find("AlteredPhoto").GetComponent<Photo>().CheckSolution();
+            fakePhoto.GetComponent<Photo>().CheckSolution();
         }
     }
 
@@ -40,19 +40,25 @@ public class PhotoParent : PuzzleParent
     {
         bool temp = true;
         PicturePossibleChange[] possChanges = GetComponentsInChildren<PicturePossibleChange>();
-        foreach(PicturePossibleChange p in possChanges)
+        if(possChanges.Length > 0)
         {
-            if(!(p.isSelected == p.realChange))
+            foreach (PicturePossibleChange p in possChanges)
             {
-                temp = false;
-                break;
+
+                if (!(p.isSelected == p.realChange))
+                {
+                    temp = false;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
-            else
-            {
-                continue;
-            }
+            return temp;
         }
-        return temp;
+        return false;
+
     }
 
     private void OnTriggerEnter(Collider other)

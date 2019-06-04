@@ -31,10 +31,11 @@ public class Photo : MonoBehaviour
 
     public void CheckSolution()
     {
+        Debug.Log("CheckSolutionPhoto");
         // If successful, play animation and freeze paintings
         Debug.Log("Photo Minigame COMPLETE!");
         isSolved = true;
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
+        //GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().PuzzleSolved();
 
         for (int i = 0; i < this.transform.childCount-1; i++)
             this.transform.GetChild(i).GetComponent<SphereCollider>().enabled = false;
