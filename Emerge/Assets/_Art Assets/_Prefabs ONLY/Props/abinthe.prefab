@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 23582379497669466}
   - component: {fileID: 64668677088304640}
   - component: {fileID: 893839676}
-  - component: {fileID: 973165972}
+  - component: {fileID: 6121208595765358193}
   m_Layer: 0
   m_Name: abinthe
   m_TagString: Pickupable
@@ -189,7 +189,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &973165972
+--- !u!114 &6121208595765358193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +198,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875032750658116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92abf249aa93dca45bb23f78ae25dc84, type: 3}
+  m_Script: {fileID: 11500000, guid: c6bcc3b4415df264a974cecfd1c73ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
   originalRotation: {x: 0, y: 0, z: 0, w: 0}
   interactable: 0
+  myLiquorType: 5
 --- !u!1 &2378229644326534632
 GameObject:
   m_ObjectHideFlags: 0

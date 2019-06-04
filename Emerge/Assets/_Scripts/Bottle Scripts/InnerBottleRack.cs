@@ -5,6 +5,7 @@ using UnityEngine;
 public class InnerBottleRack : MonoBehaviour
 {
     public bool filled = false;
+    public Bottle.liquorType typeHeld;
     private BottleRack bottleRack;
     private GameObject player;
     private GameObject playerHeldObject;
@@ -28,10 +29,11 @@ public class InnerBottleRack : MonoBehaviour
             playerHeldObject.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
             playerHeldObject.GetComponent<Rigidbody>().isKinematic = true;
             filled = true;
+            typeHeld = playerHeldObject.GetComponent<Bottle>().myLiquorType;
             this.GetComponent<AudioSource>().Play();
 
             // add slot to attempt
-            bottleRack.attempt.Add(playerHeldObject.name.Split('_')[0]);
+            bottleRack.attempt.Add(playerHeldObject.GetComponent<Bottle>().myLiquorType);
             bottleRack.attemptSlots.Add(this.name);
         }
     }

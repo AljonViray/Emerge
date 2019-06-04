@@ -8,9 +8,10 @@ public class BottleRack : MonoBehaviour
     public GameObject resetButton;
     public GameObject noteFragment;
     public AudioClip wallSplit;
-    public List<string> attempt = new List<string>();
+    public List<Bottle.liquorType> attempt = new List<Bottle.liquorType>();
     public List<string> attemptSlots = new List<string>();
     public List<string> solution = new List<string>();
+    public Bottle.liquorType[] correctPattern;
     public bool isSolved = false;
 
     private GameObject playerHeldObject;
@@ -53,6 +54,7 @@ public class BottleRack : MonoBehaviour
         foreach (GameObject area in areas)
         {
             area.GetComponent<InnerBottleRack>().filled = false;
+            area.GetComponent<InnerBottleRack>().typeHeld = Bottle.liquorType.Empty;
         }
     }
 
@@ -63,7 +65,10 @@ public class BottleRack : MonoBehaviour
         // Checking is it fails
         for (int i = 0; i < solution.Count; i++)
         {
-            if (!solution[i].Contains(attempt[i]) || areas[i].name != attemptSlots[i]) return;
+            if ( ! (correctPattern[i] == this.transform.GetChild(i).gameObject.GetComponent<InnerBottleRack>().typeHeld))
+            {
+                return;
+            }
         }
 
         // If successful, freeze bottles (if it's on the rack)

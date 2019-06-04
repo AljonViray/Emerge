@@ -91,9 +91,8 @@ GameObject:
   - component: {fileID: 64391698209671692}
   - component: {fileID: 1662135100}
   - component: {fileID: 1108407276}
-  - component: {fileID: 1108407275}
   - component: {fileID: 1662033102}
-  - component: {fileID: 1662033101}
+  - component: {fileID: 9028913033607450912}
   m_Layer: 0
   m_Name: BP_red_wine_color_2
   m_TagString: Pickupable
@@ -288,21 +287,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1108407275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782630920681592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92abf249aa93dca45bb23f78ae25dc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalPosition: {x: 0, y: 0, z: 0}
-  originalRotation: {x: 0, y: 0, z: 0, w: 0}
-  interactable: 0
 --- !u!82 &1662033102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -399,7 +383,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1662033101
+--- !u!114 &9028913033607450912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,12 +392,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782630920681592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92abf249aa93dca45bb23f78ae25dc84, type: 3}
+  m_Script: {fileID: 11500000, guid: c6bcc3b4415df264a974cecfd1c73ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
   originalRotation: {x: 0, y: 0, z: 0, w: 0}
   interactable: 0
+  myLiquorType: 4
 --- !u!1 &3699849951066277075
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class Photo : MonoBehaviour
     public List<GameObject> solution = new List<GameObject>();
     public bool isSolved = false;
 
+    public GameObject absinthe;
+
     private GameObject lookingAt;
 
 
@@ -50,12 +52,13 @@ public class Photo : MonoBehaviour
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
 
         // "Spawn" the bottles of Absinthe
-        GameObject absinthe = GameObject.Find("absinthe");
-        absinthe.GetComponent<MeshRenderer>().enabled = true;
-        absinthe.GetComponent<MeshCollider>().enabled = true;
-        absinthe.GetComponent<Rigidbody>().isKinematic = false;
-        absinthe.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
-        absinthe.transform.GetChild(1).GetComponent<Canvas>().enabled = true;
+        absinthe.SetActive(true);
+        //GameObject absinthe = GameObject.Find("absinthe");
+        //absinthe.GetComponent<MeshRenderer>().enabled = true;
+        //absinthe.GetComponent<MeshCollider>().enabled = true;
+        //absinthe.GetComponent<Rigidbody>().isKinematic = false;
+        //absinthe.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+        //absinthe.transform.GetChild(1).GetComponent<Canvas>().enabled = true;
 
         // Enable Reset_Bottles (was causing problems w/ resetting absinthe when it's not available)
         GameObject resetButton = GameObject.Find("Reset_Bottles");

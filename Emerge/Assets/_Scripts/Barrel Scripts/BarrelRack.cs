@@ -10,6 +10,7 @@ public class BarrelRack : MonoBehaviour
     public List<string> attempt = new List<string>();
     public List<string> solution;
     public bool isSolved = false;
+    public GameObject hintLoreCard;
 
     private GameObject playerHeldObject;
     private List<GameObject> barrels = new List<GameObject>();
@@ -88,6 +89,8 @@ public class BarrelRack : MonoBehaviour
         // "Spawn" the Note Fragment AND Dart_3 after winning
         noteFragment.transform.GetChild(0).gameObject.SetActive(true);
         noteFragment.GetComponent<Rigidbody>().isKinematic = false;
+
+        hintLoreCard.SetActive(true);
 
         GameObject dart_3 = GameObject.Find("Dart_3");
         dart_3.GetComponent<Rigidbody>().isKinematic = false;
