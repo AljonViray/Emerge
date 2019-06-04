@@ -32,6 +32,7 @@ public class PhotoParent : PuzzleParent
         if(isDone && GameObject.Find("GameManager").GetComponent<GameManager>().currentPuzzle == 2)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().PuzzleSolved();
+            GameObject.Find("AlteredPhoto").GetComponent<Photo>().CheckSolution();
         }
     }
 
