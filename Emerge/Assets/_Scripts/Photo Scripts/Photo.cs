@@ -26,19 +26,10 @@ public class Photo : MonoBehaviour
 
     private void Update()
     {
-        if (solution.Count == 0)
-            CheckSolution();
-
-        lookingAt = player.GetComponent<PlayerInteraction>().LookingAt(5);
-        if (lookingAt != null && Input.GetKeyDown(KeyCode.E))
-        {
-            if (solution.Contains(lookingAt))
-                solution.Remove(lookingAt);
-        }
     }
 
 
-    private void CheckSolution()
+    public void CheckSolution()
     {
         // If successful, play animation and freeze paintings
         Debug.Log("Photo Minigame COMPLETE!");
